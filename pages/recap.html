@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Recap | UsList</title>
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="../js/theme.js"></script>
+    <meta name="theme-color" content="#f8f6f4">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <a href="../index.html" class="brand">
+                <span class="brand-icon">
+                    <i class="bx bx-heart"></i>
+                </span>
+                <span class="brand-name">UsList</span>
+            </a>
+
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <p class="nav-label">MENU</p>
+
+            <a href="../index.html" class="nav-link">
+                <i class="bx bx-grid-alt"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bucket-list.html" class="nav-link">
+                <i class="bx bx-list-check"></i>
+                <span>Bucket List</span>
+            </a>
+
+            <a href="memories.html" class="nav-link">
+                <i class="bx bx-images"></i>
+                <span>Memories</span>
+            </a>
+
+            <p class="nav-label">US</p>
+
+            <a href="dates.html" class="nav-link">
+                <i class="bx bx-calendar-heart"></i>
+                <span>Our Dates</span>
+            </a>
+
+            <a href="timeline.html" class="nav-link">
+                <i class="bx bx-book-heart"></i>
+                <span>Our Story</span>
+            </a>
+
+            <a href="cycle.html" class="nav-link">
+                <i class="bx bx-pulse"></i>
+                <span>Cycle</span>
+            </a>
+
+            <a href="recap.html" class="nav-link active">
+                <i class="bx bx-party"></i>
+                <span>Recap</span>
+            </a>
+
+            <a href="wishlist.html" class="nav-link">
+                <i class="bx bx-gift"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="notes.html" class="nav-link">
+                <i class="bx bx-note"></i>
+                <span>Notes</span>
+            </a>
+
+            <a href="capsule.html" class="nav-link">
+                <i class="bx bx-time"></i>
+                <span>Capsule</span>
+            </a>
+
+
+
+
+            <a href="profile.html" class="nav-link">
+                <i class="bx bx-user"></i>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="couple-mini">
+
+                <div class="couple-avatar">
+                    <i class="bx bx-heart"></i>
+                    <span class="partner-dot idle" id="partnerDot"></span>
+                </div>
+
+                <div class="couple-info">
+                    <strong>Us</strong>
+                    <span id="partnerStatus">Offline</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <main class="main">
+
+        <header class="header">
+
+            <button class="menu-button" id="menuButton">
+                <i class="bx bx-menu"></i>
+            </button>
+
+            <div class="header-title">
+                <span>MEMORY LANE</span>
+                <h1>Recap</h1>
+            </div>
+
+            <div class="header-actions">
+
+                <select
+                    class="recap-year-select"
+                    id="recapYear"
+                ></select>
+
+                <button class="profile-button">
+                    <i class="bx bx-user"></i>
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <section class="content recap-content">
+
+
+
+
+            <!-- ==================== STORY ==================== -->
+
+            <div class="recap-story" id="recapStory" hidden>
+
+                <div class="recap-progress" id="recapProgress"></div>
+
+                <div class="recap-card" id="recapCard">
+                    <!-- JS fills this -->
+                </div>
+
+
+                <div class="recap-controls">
+
+                    <button
+                        class="recap-nav"
+                        id="recapPrev"
+                        type="button"
+                        aria-label="Previous"
+                    >
+                        <i class="bx bx-chevron-left"></i>
+                    </button>
+
+                    <button
+                        class="recap-nav recap-next"
+                        id="recapNext"
+                        type="button"
+                        aria-label="Next"
+                    >
+                        <i class="bx bx-chevron-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================== EMPTY ==================== -->
+
+            <div class="recap-empty" id="recapEmpty" hidden>
+
+                <div class="recap-empty-icon">
+                    <i class="bx bx-party"></i>
+                </div>
+
+                <h3>Not much happened yet</h3>
+
+                <p id="recapEmptyText">
+                    Add a few items, memories or dates and
+                    come back to see your recap.
+                </p>
+
+                <a
+                    href="bucket-list.html"
+                    class="primary-button"
+                >
+                    <i class="bx bx-plus"></i>
+                    Add something
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/notifications.js"></script>
+<script type="module" src="../js/recap.js"></script>
+
+    <script type="module" src="../js/presence.js"></script>
+
+
+<script>
+    // Register service worker for PWA support
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            const scope = location.pathname.includes("/pages/") ? "../" : "./";
+            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+        });
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Profile | UsList</title>
+
+
+    <!-- ==================== GOOGLE FONTS ==================== -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==================== BOXICONS ==================== -->
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- ==================== STYLES ==================== -->
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <script src="../js/theme.js"></script>
+    <meta name="theme-color" content="#f8f6f4">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     SIDEBAR
+     ========================================================= -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+
+    <!-- SIDEBAR TOP -->
+
+    <div class="sidebar-top">
+
+
+        <a
+            href="../index.html"
+            class="brand"
+        >
+
+            <span class="brand-icon">
+
+                <i class="bx bx-heart"></i>
+
+            </span>
+
+            <span class="brand-name">
+                UsList
+            </span>
+
+        </a>
+
+
+        <button
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Close menu"
+            type="button"
+        >
+
+            <i class="bx bx-x"></i>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav class="navigation">
+
+
+        <p class="nav-label">
+            MENU
+        </p>
+
+
+        <!-- DASHBOARD -->
+
+        <a
+            href="../index.html"
+            class="nav-link"
+        >
+
+            <i class="bx bx-grid-alt"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </a>
+
+
+        <!-- BUCKET LIST -->
+
+        <a
+            href="bucket-list.html"
+            class="nav-link"
+        >
+
+            <i class="bx bx-list-check"></i>
+
+            <span>
+                Bucket List
+            </span>
+
+        </a>
+
+
+        <!-- MEMORIES -->
+
+        <a
+            href="memories.html"
+            class="nav-link"
+        >
+
+            <i class="bx bx-images"></i>
+
+            <span>
+                Memories
+            </span>
+
+        </a>
+
+
+        <!-- US SECTION -->
+
+        <p class="nav-label">
+            US
+        </p>
+
+
+        <!-- OUR STORY -->
+<a href="dates.html" class="nav-link">
+    <i class='bx bx-calendar-heart'></i>
+    <span>Our Dates</span>
+</a>
+
+        <a href="timeline.html" class="nav-link">
+            <i class='bx bx-book-heart'></i>
+            <span>Our Story</span>
+        </a>
+
+        <a href="cycle.html" class="nav-link">
+            <i class='bx bx-pulse'></i>
+            <span>Cycle</span>
+        </a>
+
+        <a href="recap.html" class="nav-link">
+            <i class='bx bx-party'></i>
+            <span>Recap</span>
+        </a>
+
+            <a href="wishlist.html" class="nav-link">
+                <i class="bx bx-gift"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="notes.html" class="nav-link">
+                <i class="bx bx-note"></i>
+                <span>Notes</span>
+            </a>
+
+            <a href="capsule.html" class="nav-link">
+                <i class="bx bx-time"></i>
+                <span>Capsule</span>
+            </a>
+
+
+
+
+
+        <!-- PROFILE -->
+
+        <a
+            href="profile.html"
+            class="nav-link active"
+        >
+
+            <i class="bx bx-user"></i>
+
+            <span>
+                Profile
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         SIDEBAR BOTTOM
+         ===================================================== -->
+
+    <div class="sidebar-bottom">
+
+
+        <div class="couple-mini">
+
+
+            <div class="couple-avatar">
+                    <i class="bx bx-heart"></i>
+                    <span class="partner-dot idle" id="partnerDot"></span>
+                </div>
+
+
+            <div class="couple-info">
+
+                <strong>
+                    Us
+                </strong>
+
+                <span id="partnerStatus">Offline</span>
+
+            </div>
+
+
+        </div>
+
+
+        <button
+            class="sidebar-logout"
+            id="logoutButton"
+            type="button"
+        >
+
+            <i class="bx bx-log-out"></i>
+
+            <span>
+                Log Out
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+</aside>
+
+
+
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
+<main class="main">
+
+
+    <!-- =====================================================
+         HEADER
+         ===================================================== -->
+
+    <header class="header">
+
+
+        <button
+            class="icon-button menu-button"
+            id="menuButton"
+            aria-label="Open menu"
+            type="button"
+        >
+
+            <i class="bx bx-menu"></i>
+
+        </button>
+
+
+        <div class="header-title">
+
+            <span>
+                YOUR ACCOUNT
+            </span>
+
+            <h1>
+                Profile
+            </h1>
+
+        </div>
+
+
+        <div class="header-actions">
+
+            <button
+                class="profile-button"
+                type="button"
+            >
+
+                <i class="bx bx-user"></i>
+
+            </button>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- =====================================================
+         CONTENT
+         ===================================================== -->
+
+    <section class="content">
+
+
+        <div class="profile-page">
+
+
+            <!-- =================================================
+                 PROFILE INFORMATION
+                 ================================================= -->
+
+            <div class="panel profile-card">
+
+
+                <div class="profile-avatar">
+
+                    <i class="bx bx-user"></i>
+
+                </div>
+
+
+                <div class="profile-info">
+
+                    <span class="panel-eyebrow">
+                        YOUR PROFILE
+                    </span>
+
+                    <h2 id="profileUsername">
+                        Loading...
+                    </h2>
+
+                    <p>
+
+                        <i class="bx bx-user"></i>
+
+                        <span>
+                            UsList account
+                        </span>
+
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 COUPLE CONNECTION
+                 ================================================= -->
+
+            <div class="panel couple-panel">
+
+
+                <!-- PANEL HEADING -->
+
+                <div class="panel-heading">
+
+
+                    <div>
+
+                        <span class="panel-eyebrow">
+                            YOUR PARTNERSHIP
+                        </span>
+
+                        <h2>
+                            Our Connection
+                        </h2>
+
+                        <p>
+                            Connect your account with your partner.
+                        </p>
+
+                    </div>
+
+
+                    <div class="panel-heading-icon">
+
+                        <i class="bx bx-heart"></i>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     NOT CONNECTED
+                     ================================================= -->
+
+                <div id="notConnected">
+
+
+                    <div class="connection-actions">
+
+
+                        <!-- CREATE COUPLE -->
+
+                        <button
+                            id="createCoupleButton"
+                            class="primary-button"
+                            type="button"
+                        >
+
+                            <i class="bx bx-heart"></i>
+
+                            <span>
+                                Create Couple
+                            </span>
+
+                        </button>
+
+
+
+                        <!-- DIVIDER -->
+
+                        <div class="connection-divider">
+
+                            <span>
+                                OR
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- JOIN COUPLE -->
+
+                        <div class="join-section">
+
+
+                            <label for="inviteCode">
+
+                                Enter your partner's invite code
+
+                            </label>
+
+
+                            <div class="invite-input">
+
+
+                                <input
+                                    type="text"
+                                    id="inviteCode"
+                                    maxlength="6"
+                                    placeholder="ABC123"
+                                    autocomplete="off"
+                                    spellcheck="false"
+                                >
+
+
+                                <button
+                                    id="joinCoupleButton"
+                                    class="secondary-button"
+                                    type="button"
+                                >
+
+                                    <i class="bx bx-link"></i>
+
+                                    <span>
+                                        Join Couple
+                                    </span>
+
+                                </button>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CONNECTED
+                     ================================================= -->
+
+                <div
+                    id="connected"
+                    hidden
+                >
+
+
+                    <div class="connected-status">
+
+
+                        <div class="connected-icon">
+
+                            <i class="bx bx-heart"></i>
+
+                        </div>
+
+
+                        <div>
+
+                            <strong>
+                                You're connected!
+                            </strong>
+
+                            <p>
+                                Your shared UsList is ready.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     INVITE CODE
+                     ================================================= -->
+
+                <div
+                    id="inviteCodeDisplay"
+                    hidden
+                >
+
+
+                    <div class="invite-code-card">
+
+
+                        <p>
+                            Your invite code
+                        </p>
+
+
+                        <div class="invite-code-value">
+
+
+                            <strong id="generatedInviteCode">
+                                ------
+                            </strong>
+
+
+                            <button
+                                id="copyInviteCodeButton"
+                                class="copy-code-button"
+                                type="button"
+                                aria-label="Copy invite code"
+                            >
+
+                                <i class="bx bx-copy"></i>
+
+                                <span>
+                                    Copy Code
+                                </span>
+
+                            </button>
+
+
+                        </div>
+
+
+                        <span>
+                            Give this code to your partner.
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ERROR
+                     ================================================= -->
+
+                <div
+                    id="coupleError"
+                    class="form-error"
+                    hidden
+                ></div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =========================================================
+     AUTH
+     ========================================================= -->
+
+<script
+    type="module"
+    src="../js/auth.js"
+></script>
+
+
+
+<!-- =========================================================
+     PROFILE / COUPLE LOGIC
+     ========================================================= -->
+
+<script type="module">
+
+
+    import {
+        auth,
+        db
+    } from "../firebase/config.js";
+
+
+    import {
+        doc,
+        getDoc
+    } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+
+    import {
+        createCouple,
+        joinCouple
+    } from "../js/auth.js";
+
+
+
+    /* =========================================================
+       ELEMENTS
+       ========================================================= */
+
+
+    const profileUsername =
+        document.getElementById(
+            "profileUsername"
+        );
+
+
+    const notConnected =
+        document.getElementById(
+            "notConnected"
+        );
+
+
+    const connected =
+        document.getElementById(
+            "connected"
+        );
+
+
+    const inviteCodeDisplay =
+        document.getElementById(
+            "inviteCodeDisplay"
+        );
+
+
+    const generatedInviteCode =
+        document.getElementById(
+            "generatedInviteCode"
+        );
+
+
+    const coupleError =
+        document.getElementById(
+            "coupleError"
+        );
+
+
+    const createCoupleButton =
+        document.getElementById(
+            "createCoupleButton"
+        );
+
+
+    const joinCoupleButton =
+        document.getElementById(
+            "joinCoupleButton"
+        );
+
+
+    const inviteCodeInput =
+        document.getElementById(
+            "inviteCode"
+        );
+
+
+    const copyInviteCodeButton =
+        document.getElementById(
+            "copyInviteCodeButton"
+        );
+
+
+
+    /* =========================================================
+       ERROR HANDLING
+       ========================================================= */
+
+
+    function showCoupleError(message) {
+
+        coupleError.textContent =
+            message;
+
+        coupleError.hidden =
+            false;
+
+    }
+
+
+    function clearCoupleError() {
+
+        coupleError.textContent =
+            "";
+
+        coupleError.hidden =
+            true;
+
+    }
+
+
+
+    /* =========================================================
+       LOAD PROFILE
+       ========================================================= */
+
+
+    async function loadProfile() {
+
+
+        const user =
+            auth.currentUser;
+
+
+        if (!user) {
+            return;
+        }
+
+
+        try {
+
+
+            const userSnapshot =
+                await getDoc(
+                    doc(
+                        db,
+                        "users",
+                        user.uid
+                    )
+                );
+
+
+            if (!userSnapshot.exists()) {
+
+                profileUsername.textContent =
+                    "Your Profile";
+
+                return;
+
+            }
+
+
+            const userData =
+                userSnapshot.data();
+
+
+            profileUsername.textContent =
+                "@" + userData.username;
+
+
+
+            /* =============================================
+               ALREADY CONNECTED
+               ============================================= */
+
+            if (userData.coupleId) {
+
+                notConnected.hidden =
+                    true;
+
+                connected.hidden =
+                    false;
+
+
+
+                /* =========================================
+                   SHOW INVITE CODE IF PARTNER
+                   HAS NOT JOINED YET
+                   ========================================= */
+
+                const coupleSnapshot =
+                    await getDoc(
+                        doc(
+                            db,
+                            "couples",
+                            userData.coupleId
+                        )
+                    );
+
+
+                if (coupleSnapshot.exists()) {
+
+
+                    const coupleData =
+                        coupleSnapshot.data();
+
+
+                    const partnerJoined =
+                        coupleData.member1Uid &&
+                        coupleData.member2Uid;
+
+
+                    if (!partnerJoined) {
+
+                        generatedInviteCode.textContent =
+                            coupleData.inviteCode;
+
+
+                        inviteCodeDisplay.hidden =
+                            false;
+
+                    }
+
+                }
+
+            }
+
+
+        } catch (error) {
+
+            console.error(
+                "Profile loading error:",
+                error
+            );
+
+        }
+
+    }
+
+
+
+    /* =========================================================
+       CREATE COUPLE
+       ========================================================= */
+
+
+    createCoupleButton.addEventListener(
+        "click",
+        async () => {
+
+
+            clearCoupleError();
+
+
+            try {
+
+
+                createCoupleButton.disabled =
+                    true;
+
+
+                createCoupleButton
+                    .querySelector("span")
+                    .textContent =
+                    "Creating...";
+
+
+                const result =
+                    await createCouple();
+
+
+
+                /* =========================================
+                   SHOW GENERATED CODE
+                   ========================================= */
+
+                generatedInviteCode.textContent =
+                    result.inviteCode;
+
+
+                inviteCodeDisplay.hidden =
+                    false;
+
+
+                notConnected.hidden =
+                    true;
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "Create couple error:",
+                    error
+                );
+
+
+                showCoupleError(
+                    error.message
+                );
+
+
+            } finally {
+
+
+                createCoupleButton.disabled =
+                    false;
+
+
+                createCoupleButton
+                    .querySelector("span")
+                    .textContent =
+                    "Create Couple";
+
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================================================
+       JOIN COUPLE
+       ========================================================= */
+
+
+    joinCoupleButton.addEventListener(
+        "click",
+        async () => {
+
+
+            clearCoupleError();
+
+
+            const code =
+                inviteCodeInput.value
+                    .trim()
+                    .toUpperCase();
+
+
+            if (!code) {
+
+                showCoupleError(
+                    "Please enter an invite code."
+                );
+
+                return;
+
+            }
+
+
+            if (code.length !== 6) {
+
+                showCoupleError(
+                    "Invite code must be 6 characters."
+                );
+
+                return;
+
+            }
+
+
+
+            try {
+
+
+                joinCoupleButton.disabled =
+                    true;
+
+
+                joinCoupleButton
+                    .querySelector("span")
+                    .textContent =
+                    "Joining...";
+
+
+                await joinCouple(
+                    code
+                );
+
+
+                notConnected.hidden =
+                    true;
+
+                connected.hidden =
+                    false;
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "Join couple error:",
+                    error
+                );
+
+
+                showCoupleError(
+                    error.message
+                );
+
+
+            } finally {
+
+
+                joinCoupleButton.disabled =
+                    false;
+
+
+                joinCoupleButton
+                    .querySelector("span")
+                    .textContent =
+                    "Join Couple";
+
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================================================
+       COPY INVITE CODE
+       ========================================================= */
+
+
+    copyInviteCodeButton.addEventListener(
+        "click",
+        async () => {
+
+
+            const code =
+                generatedInviteCode
+                    .textContent
+                    .trim();
+
+
+            if (
+                !code ||
+                code === "------"
+            ) {
+                return;
+            }
+
+
+
+            try {
+
+
+                await navigator.clipboard.writeText(
+                    code
+                );
+
+
+                const icon =
+                    copyInviteCodeButton
+                        .querySelector("i");
+
+
+                const text =
+                    copyInviteCodeButton
+                        .querySelector("span");
+
+
+
+                /* CHANGE BUTTON */
+
+                icon.className =
+                    "bx bx-check";
+
+
+                text.textContent =
+                    "Copied!";
+
+
+
+                /* RESET BUTTON */
+
+                setTimeout(
+                    () => {
+
+                        icon.className =
+                            "bx bx-copy";
+
+                        text.textContent =
+                            "Copy Code";
+
+                    },
+                    1800
+                );
+
+
+            } catch (error) {
+
+
+                console.error(
+                    "Could not copy invite code:",
+                    error
+                );
+
+
+                showCoupleError(
+                    "Could not copy the code. Please copy it manually."
+                );
+
+            }
+
+        }
+    );
+
+
+
+    /* =========================================================
+       MOBILE SIDEBAR
+       ========================================================= */
+
+
+    const sidebar =
+        document.getElementById(
+            "sidebar"
+        );
+
+
+    const menuButton =
+        document.getElementById(
+            "menuButton"
+        );
+
+
+    const sidebarClose =
+        document.getElementById(
+            "sidebarClose"
+        );
+
+
+
+    if (menuButton) {
+
+        menuButton.addEventListener(
+            "click",
+            () => {
+
+                sidebar.classList.add(
+                    "open"
+                );
+
+            }
+        );
+
+    }
+
+
+
+    if (sidebarClose) {
+
+        sidebarClose.addEventListener(
+            "click",
+            () => {
+
+                sidebar.classList.remove(
+                    "open"
+                );
+
+            }
+        );
+
+    }
+
+
+
+    /* =========================================================
+       START
+       ========================================================= */
+
+
+    auth.authStateReady().then(
+        loadProfile
+    );
+
+
+</script>
+
+<script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/notifications.js"></script>
+<script type="module" src="../js/dates-notifications.js"></script>
+
+    <script src="../js/sidebar.js"></script>
+    <script type="module" src="../js/presence.js"></script>
+
+<script>
+    // Register service worker for PWA support
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            const scope = location.pathname.includes("/pages/") ? "../" : "./";
+            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+        });
+    }
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Memories | UsList</title>
+
+
+    <!-- Google Fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- Boxicons -->
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+
+    <!-- Styles -->
+
+    <link
+        rel="stylesheet"
+        href="../css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/components.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="../css/responsive.css"
+    >
+
+    <script src="../js/theme.js"></script>
+    <meta name="theme-color" content="#f8f6f4">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+</head>
+
+
+<body>
+
+
+    <!-- ==================== SIDEBAR ==================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+
+        <div class="sidebar-top">
+
+            <a
+                href="../index.html"
+                class="brand"
+            >
+
+                <div class="brand-icon">
+
+                    <i class="bx bx-heart"></i>
+
+                </div>
+
+                <span class="brand-name">
+                    UsList
+                </span>
+
+            </a>
+
+
+            <button
+                class="sidebar-close"
+                id="sidebarClose"
+                aria-label="Close menu"
+            >
+
+                <i class="bx bx-x"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="navigation">
+
+
+            <span class="nav-label">
+                MENU
+            </span>
+
+
+            <a
+                href="../index.html"
+                class="nav-link"
+            >
+
+                <i class="bx bx-grid-alt"></i>
+
+                Dashboard
+
+            </a>
+
+
+            <a
+                href="bucket-list.html"
+                class="nav-link"
+            >
+
+                <i class="bx bx-list-check"></i>
+
+                Bucket List
+
+            </a>
+
+
+            <a
+                href="memories.html"
+                class="nav-link active"
+            >
+
+                <i class="bx bx-heart"></i>
+
+                Memories
+
+            </a>
+
+            <a href="dates.html" class="nav-link">
+    <i class="bx bx-calendar-heart"></i>
+    <span>Our Dates</span>
+</a>
+
+<a href="timeline.html" class="nav-link">
+    <i class="bx bx-book-heart"></i>
+    <span>Our Story</span>
+</a>
+
+            <a href="cycle.html" class="nav-link">
+                <i class="bx bx-pulse"></i>
+                <span>Cycle</span>
+            </a>
+
+            <a href="recap.html" class="nav-link">
+                <i class="bx bx-party"></i>
+                <span>Recap</span>
+            </a>
+
+            <a href="wishlist.html" class="nav-link">
+                <i class="bx bx-gift"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="notes.html" class="nav-link">
+                <i class="bx bx-note"></i>
+                <span>Notes</span>
+            </a>
+
+            <a href="capsule.html" class="nav-link">
+                <i class="bx bx-time"></i>
+                <span>Capsule</span>
+            </a>
+
+
+
+
+
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+
+                <i class="bx bx-user"></i>
+
+                Profile
+
+            </a>
+
+        </nav>
+
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+            <div class="couple-mini">
+
+                <div class="couple-avatar">
+                    <i class="bx bx-heart"></i>
+                    <span class="partner-dot idle" id="partnerDot"></span>
+                </div>
+
+
+                <div class="couple-info">
+
+                    <strong>
+                        Our Story
+                    </strong>
+
+                    <span id="partnerStatus">Offline</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ==================== MAIN ==================== -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                aria-label="Open menu"
+            >
+                <i class="bx bx-menu"></i>
+            </button>
+
+
+            <div class="header-title">
+
+                <span>
+                    OUR STORY
+                </span>
+
+                <h1>
+                    Memories
+                </h1>
+
+            </div>
+
+
+            <div class="header-actions">
+
+
+                <button
+                    class="primary-button memory-add-button"
+                    id="openMemoryModal"
+                >
+
+                    <i class="bx bx-plus"></i>
+
+                    Add Memory
+
+                </button>
+
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================== CONTENT ==================== -->
+
+        <section class="content memory-content">
+
+
+            <!-- INTRO -->
+
+            <div class="bucket-intro memory-intro">
+
+                <div>
+
+                    <span class="eyebrow memory-eyebrow">
+                        OUR MOMENTS
+                    </span>
+
+                    <h2>
+                        Memories
+                    </h2>
+
+                    <p>
+                        Keep the little moments that became
+                        part of your story.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TOOLBAR -->
+
+            <div class="bucket-toolbar memory-toolbar">
+
+
+                <div class="bucket-filters">
+
+                    <button
+                        class="filter-button active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-filter="romance"
+                    >
+                        Romance
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-filter="travel"
+                    >
+                        Travel
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-filter="dates"
+                    >
+                        Dates
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-filter="milestones"
+                    >
+                        Milestones
+                    </button>
+
+                </div>
+
+
+
+                <div class="bucket-count">
+
+                    <i class="bx bx-heart"></i>
+
+                    <span id="memoryCount">
+                        0 memories
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================== MEMORY GRID ==================== -->
+
+            <div
+                class="memory-grid"
+                id="memoriesGrid"
+            ></div>
+
+
+
+            <!-- ==================== EMPTY STATE ==================== -->
+
+            <div
+                class="empty-state"
+                id="memoryEmptyState"
+            >
+
+                <div class="empty-icon">
+
+                    <i class="bx bx-heart"></i>
+
+                </div>
+
+
+                <h3>
+                    No memories yet
+                </h3>
+
+
+                <p>
+                    Start saving the moments that make
+                    your relationship special.
+                </p>
+
+
+                <button
+                    class="primary-button"
+                    id="emptyMemoryButton"
+                >
+
+                    <i class="bx bx-plus"></i>
+
+                    Add your first memory
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==================== ADD MEMORY MODAL ==================== -->
+
+    <div
+        class="modal-overlay"
+        id="memoryModal"
+    >
+
+        <div class="modal memory-modal">
+
+
+            <div class="modal-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        OUR STORY
+                    </span>
+
+                    <h3>
+                        Add a memory
+                    </h3>
+
+                    <p class="modal-description">
+                        Save a moment you'll want to remember.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="modal-close"
+                    id="closeMemoryModal"
+                    aria-label="Close"
+                >
+
+                    <i class="bx bx-x"></i>
+
+                </button>
+
+            </div>
+
+
+
+            <form id="memoryForm">
+
+
+                <!-- TITLE -->
+
+                <div class="form-group">
+
+                    <label for="memoryTitle">
+                        Memory title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="memoryTitle"
+                        maxlength="100"
+                        placeholder="e.g. Our first date"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- DATE -->
+
+                <div class="form-group">
+
+                    <label for="memoryDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="memoryDate"
+                        required
+                    >
+
+                </div>
+
+
+
+                <!-- CATEGORY -->
+
+                <div class="form-group">
+
+                    <label>
+                        Category
+                    </label>
+
+
+                    <div class="category-options">
+
+
+                        <label class="category-option">
+
+                            <input
+                                type="radio"
+                                name="memoryCategory"
+                                value="romance"
+                                checked
+                            >
+
+                            <span>
+
+                                <i class="bx bx-heart"></i>
+
+                                Romance
+
+                            </span>
+
+                        </label>
+
+
+
+                        <label class="category-option">
+
+                            <input
+                                type="radio"
+                                name="memoryCategory"
+                                value="travel"
+                            >
+
+                            <span>
+
+                                <i class="bx bx-map"></i>
+
+                                Travel
+
+                            </span>
+
+                        </label>
+
+
+
+                        <label class="category-option">
+
+                            <input
+                                type="radio"
+                                name="memoryCategory"
+                                value="dates"
+                            >
+
+                            <span>
+
+                                <i class="bx bx-calendar"></i>
+
+                                Dates
+
+                            </span>
+
+                        </label>
+
+
+
+                        <label class="category-option">
+
+                            <input
+                                type="radio"
+                                name="memoryCategory"
+                                value="milestones"
+                            >
+
+                            <span>
+
+                                <i class="bx bx-star"></i>
+
+                                Milestones
+
+                            </span>
+
+                        </label>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <div class="form-group">
+
+                    <label for="memoryDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="memoryDescription"
+                        maxlength="500"
+                        rows="4"
+                        placeholder="Tell the story behind this moment..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- LINK TO BUCKET ITEM -->
+
+                <div class="form-group">
+
+                    <label for="memoryLinkedItem">
+                        Link to a bucket item <span>Optional</span>
+                    </label>
+
+                    <select id="memoryLinkedItem" class="memory-linked-select">
+                        <option value="">— None —</option>
+                    </select>
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="form-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-button"
+                        id="cancelMemory"
+                    >
+                        Cancel
+                    </button>
+
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+
+                        <i class="bx bx-heart"></i>
+
+                        Save Memory
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================== DELETE MEMORY MODAL ==================== -->
+
+    <div
+        class="modal-overlay"
+        id="deleteMemoryModal"
+    >
+
+        <div class="modal delete-modal">
+
+
+            <div class="delete-icon">
+
+                <i class="bx bx-trash"></i>
+
+            </div>
+
+
+            <div class="modal-header delete-header">
+
+                <div>
+
+                    <h3>
+                        Delete memory?
+                    </h3>
+
+                    <p id="deleteMemoryText">
+                        This memory will be permanently removed.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelMemoryDelete"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="button"
+                    class="danger-button"
+                    id="confirmMemoryDelete"
+                >
+
+                    <i class="bx bx-trash"></i>
+
+                    Delete
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="../js/app.js"></script>
+
+    <script type="module" src="../js/memories.js"></script>
+    <script type="module" src="../js/notifications.js"></script>
+    <script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/dates-notifications.js"></script>
+
+    <script src="../js/sidebar.js"></script>
+    <script type="module" src="../js/presence.js"></script>
+
+<script>
+    // Register service worker for PWA support
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            const scope = location.pathname.includes("/pages/") ? "../" : "./";
+            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+        });
+    }
+</script>
+
+</body>
+
+</html>

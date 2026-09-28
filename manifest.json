@@ -1,0 +1,25 @@
+{
+    "name": "UsList — Our Little World",
+    "short_name": "UsList",
+    "description": "A private app for two — bucket list, memories, dates, and more.",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#f8f6f4",
+    "theme_color": "#703f49",
+    "icons": [
+        {
+            "src": "assets/icons/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "assets/icons/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

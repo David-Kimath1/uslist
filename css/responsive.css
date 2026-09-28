@@ -1,0 +1,979 @@
+/* =========================================================
+   USLIST — FULL RESPONSIVE STYLES
+   Breakpoints: 1200 / 1024 / 900 / 768 / 600 / 400
+   ========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+img, video, canvas, svg {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent iOS zoom on input focus */
+input, textarea, select, button {
+    font-size: 16px;
+}
+
+@media (min-width: 900px) {
+    input, textarea, select, button {
+        font-size: inherit;
+    }
+}
+
+
+/* =========================================================
+   1200px — SMALL LAPTOPS
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .content {
+        padding: 32px 32px 50px;
+    }
+
+    .header {
+        padding: 0 32px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dates-grid,
+    .memories-grid,
+    .memory-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   1024px — TABLETS (LANDSCAPE)
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+    :root {
+        --sidebar-width: 220px;
+    }
+
+    .content {
+        padding: 28px 26px 46px;
+    }
+
+    .header {
+        height: 80px;
+        padding: 0 26px;
+    }
+
+    .header-title h1 {
+        font-size: 21px;
+    }
+
+    .hero-card {
+        min-height: 240px;
+        padding: 34px 34px;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Bucket list */
+    .bucket-item {
+        padding: 16px;
+    }
+
+    /* Notes + capsules + wishlist */
+    .notes-grid,
+    .capsule-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .wishlist-columns {
+        gap: 16px;
+    }
+
+    /* Cycle */
+    .cycle-predictions {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Recap card */
+    .recap-card {
+        max-width: 480px;
+        min-height: 480px;
+    }
+
+}
+
+
+/* =========================================================
+   900px — TABLETS (PORTRAIT)
+   Sidebar collapses into a drawer
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    :root {
+        --sidebar-width: 0px;
+    }
+
+    /* SIDEBAR — drawer */
+    .sidebar {
+        width: 260px;
+
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+
+        z-index: 1000;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .sidebar-close {
+        display: grid;
+
+        width: 36px;
+        height: 36px;
+
+        place-items: center;
+
+        color: var(--text-soft);
+        background: transparent;
+
+        font-size: 22px;
+
+        border: none;
+        border-radius: 8px;
+
+        cursor: pointer;
+    }
+
+    /* MAIN */
+    .main {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* Header: burger becomes visible */
+    .menu-button {
+        display: grid;
+        margin-right: 10px;
+    }
+
+    /* Backdrop for the drawer */
+    body.sidebar-open::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+
+        background: rgba(35, 27, 29, 0.45);
+
+        z-index: 999;
+        pointer-events: auto;
+    }
+
+    /* Dashboard */
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Wishlist — switch to tabs mode */
+    .wishlist-tabs {
+        display: flex;
+    }
+
+    .wishlist-columns {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    /* Notes + capsules */
+    .notes-grid,
+    .capsule-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Cycle predictions */
+    .cycle-predictions {
+        grid-template-columns: 1fr;
+    }
+
+    /* Recap */
+    .recap-content {
+        padding: 28px 18px 40px;
+    }
+
+    .recap-card {
+        min-height: 440px;
+        padding: 36px 26px;
+    }
+
+    /* Search overlay */
+    .search-overlay {
+        padding: 30px 16px;
+    }
+
+    /* Header actions wrap-friendly */
+    .header-actions {
+        gap: 6px;
+    }
+
+    /* Toast + banner above everything */
+    .toast-stack {
+        top: 14px;
+    }
+
+    .notify-banner-stack {
+        right: 16px;
+        left: 16px;
+        bottom: 16px;
+    }
+
+    .notify-banner {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   768px — LARGE PHONES (LANDSCAPE)
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    .content {
+        padding: 22px 18px 40px;
+    }
+
+    .header {
+        height: 72px;
+        padding: 0 16px;
+    }
+
+    .header-title span {
+        font-size: 11px;
+    }
+
+    .header-title h1 {
+        font-size: 19px;
+    }
+
+    /* Bucket list intro */
+    .bucket-intro {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .bucket-intro .primary-button,
+    .dates-add-button,
+    .memory-add-button,
+    .capsule-add-button,
+    .wishlist-add-button,
+    .notes-add-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Toolbar stacked */
+    .bucket-toolbar,
+    .dates-toolbar,
+    .memory-toolbar,
+    .timeline-toolbar,
+    .notes-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .bucket-filters {
+        width: 100%;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .bucket-filters::-webkit-scrollbar {
+        display: none;
+    }
+
+    .filter-button {
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+
+    /* Category grid */
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Stats */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 14px;
+    }
+
+    .stat-content strong {
+        font-size: 17px;
+    }
+
+    /* Progress panel */
+    .progress-circle {
+        width: 130px;
+        height: 130px;
+    }
+
+    .progress-circle::before {
+        width: 108px;
+        height: 108px;
+    }
+
+    /* Dates grid */
+    .dates-grid,
+    .memories-grid,
+    .memory-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Cycle calendar */
+    .cycle-calendar-grid,
+    .cycle-calendar-weekdays {
+        gap: 3px;
+    }
+
+    .cycle-day {
+        font-size: 11px;
+        border-radius: 8px;
+    }
+
+    .cycle-legend {
+        gap: 12px;
+        font-size: 10px;
+    }
+
+    /* Category options */
+    .category-options {
+        grid-template-columns: 1fr;
+    }
+
+    /* Visibility options */
+    .visibility-options {
+        grid-template-columns: 1fr;
+    }
+
+    /* Meal options */
+    .meal-options {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Modal */
+    .modal {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .modal-header h3 {
+        font-size: 20px;
+    }
+
+    /* Note reader */
+    .note-reader-modal,
+    .capsule-reader-modal {
+        padding: 24px 22px;
+    }
+
+    .reader-title {
+        font-size: 22px;
+    }
+
+    .reader-body {
+        font-size: 14px;
+        line-height: 1.75;
+    }
+
+    /* Capsule countdown (partner view) */
+    .capsule-big-countdown {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .capsule-big-block strong {
+        font-size: 22px;
+    }
+
+    /* Recap */
+    .recap-card {
+        min-height: 400px;
+        padding: 30px 22px;
+    }
+
+    .recap-big {
+        font-size: 80px;
+    }
+
+    .recap-title {
+        font-size: 26px;
+    }
+
+    /* Food picker */
+    .food-picker-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .food-picker-final strong {
+        font-size: 22px;
+    }
+
+    .food-picker-rolling {
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================================
+   600px — PHONES (PORTRAIT)
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .content {
+        padding: 20px 14px 40px;
+    }
+
+    .header {
+        height: 68px;
+        padding: 0 14px;
+    }
+
+    .header-title h1 {
+        font-size: 18px;
+    }
+
+    .header-actions {
+        gap: 4px;
+    }
+
+    .icon-button,
+    .profile-button,
+    .menu-button,
+    .theme-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .icon-button i,
+    .profile-button i,
+    .menu-button i,
+    .theme-toggle i {
+        font-size: 19px;
+    }
+
+    /* Hero card */
+    .hero-card {
+        min-height: auto;
+        padding: 28px 22px;
+    }
+
+    .hero-card h2 {
+        font-size: 32px;
+    }
+
+    .hero-card p {
+        font-size: 12px;
+    }
+
+    .hero-decoration {
+        right: -80px;
+        bottom: -70px;
+        opacity: 0.6;
+    }
+
+    /* Progress */
+    .progress-panel .panel-header {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /* Dashboard cycle prompt */
+    .dashboard-cycle-prompt {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .dashboard-cycle-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Next date hero */
+    .dashboard-next-date,
+    .dates-hero-countdown {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px 20px;
+    }
+
+    .dashboard-next-date-timer,
+    .dates-hero-timer {
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+    }
+
+    .dates-timer-block {
+        min-width: 0;
+        padding: 10px 6px;
+    }
+
+    .dates-timer-block strong {
+        font-size: 22px;
+    }
+
+    /* Profile page */
+    .profile-card {
+        padding: 16px;
+        gap: 14px;
+    }
+
+    .profile-avatar {
+        width: 56px;
+        height: 56px;
+        font-size: 24px;
+    }
+
+    .profile-info h2 {
+        font-size: 19px;
+    }
+
+    .panel-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    /* Invite input */
+    .invite-input {
+        flex-direction: column;
+    }
+
+    .invite-input input,
+    .invite-input .secondary-button {
+        width: 100%;
+    }
+
+    /* Invite code */
+    .invite-code-card {
+        padding: 20px 14px;
+    }
+
+    .invite-code-value {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .invite-code-value strong {
+        font-size: 26px;
+        letter-spacing: 5px;
+    }
+
+    .copy-code-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Search */
+    .search-panel {
+        max-height: 92vh;
+        border-radius: 16px;
+    }
+
+    .search-bar {
+        padding: 14px 16px;
+    }
+
+    .search-bar input {
+        font-size: 15px;
+    }
+
+    .search-result {
+        padding: 10px 14px;
+    }
+
+    .search-result-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+    }
+
+    /* Notification panel (bell removed but keep for future) */
+    .notification-panel {
+        width: calc(100vw - 24px);
+        right: -40px;
+    }
+
+    /* Wishlist */
+    .wishlist-column-header h3 {
+        font-size: 18px;
+    }
+
+    .wish-card {
+        padding: 14px;
+    }
+
+    .wish-title {
+        font-size: 16px;
+    }
+
+    .wish-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    /* Notes + capsules */
+    .note-card {
+        padding: 16px;
+    }
+
+    .note-card-title {
+        font-size: 17px;
+    }
+
+    .capsule-card {
+        padding: 18px;
+    }
+
+    .capsule-title {
+        font-size: 17px;
+    }
+
+    /* Cycle history */
+    .cycle-history-item {
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .cycle-history-body strong {
+        font-size: 12px;
+    }
+
+    .cycle-history-body span {
+        font-size: 10px;
+    }
+
+    /* Timeline */
+    .timeline-event {
+        padding: 12px 14px;
+        gap: 11px;
+    }
+
+    .timeline-event-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 17px;
+    }
+
+    .timeline-event-text {
+        font-size: 12px;
+    }
+
+    /* Recap */
+    .recap-content {
+        padding: 20px 14px 40px;
+    }
+
+    .recap-card {
+        min-height: 380px;
+        padding: 26px 20px;
+        border-radius: 18px;
+    }
+
+    .recap-big {
+        font-size: 64px;
+    }
+
+    .recap-title {
+        font-size: 22px;
+    }
+
+    .recap-title-small {
+        font-size: 18px;
+    }
+
+    .recap-subtitle,
+    .recap-subtitle-large {
+        font-size: 12px;
+    }
+
+    .recap-photo-wrap {
+        width: 140px;
+        height: 140px;
+    }
+
+    /* Food picker display */
+    .food-picker-display {
+        min-height: 78px;
+        padding: 16px;
+    }
+
+    /* Modal general */
+    .modal {
+        max-width: 100%;
+        max-height: 92vh;
+        padding: 20px;
+    }
+
+    /* Form actions stack */
+    .form-actions {
+        flex-wrap: wrap;
+    }
+
+    .form-actions > * {
+        flex: 1;
+        justify-content: center;
+    }
+
+}
+
+
+/* =========================================================
+   400px — SMALL PHONES (iPhone SE etc.)
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .content {
+        padding: 16px 12px 34px;
+    }
+
+    .header {
+        height: 64px;
+        padding: 0 12px;
+    }
+
+    .header-title span {
+        display: none;
+    }
+
+    .header-title h1 {
+        font-size: 17px;
+    }
+
+    /* Stats stack to 1 column */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Hero */
+    .hero-card h2 {
+        font-size: 26px;
+    }
+
+    /* Timer blocks 2 columns */
+    .dashboard-next-date-timer,
+    .dates-hero-timer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Profile card */
+    .profile-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+    .profile-info h2 {
+        font-size: 18px;
+    }
+
+    /* Panel heading smaller */
+    .panel-heading h2 {
+        font-size: 18px;
+    }
+
+    .panel-heading p {
+        max-width: 220px;
+        line-height: 1.5;
+    }
+
+    /* Invite code */
+    .invite-code-value strong {
+        font-size: 22px;
+        letter-spacing: 4px;
+    }
+
+    /* Cycle big countdown 2 cols */
+    .cycle-predictions {
+        gap: 10px;
+    }
+
+    .cycle-card {
+        padding: 14px;
+    }
+
+    .cycle-card-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+    }
+
+    .cycle-card-body strong {
+        font-size: 17px;
+    }
+
+    /* Calendar cells */
+    .cycle-day {
+        font-size: 10px;
+        border-radius: 6px;
+    }
+
+    /* Modal padding */
+    .modal {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    /* Notes reader */
+    .reader-title {
+        font-size: 20px;
+    }
+
+    .reader-body {
+        font-size: 13px;
+    }
+
+    /* Recap */
+    .recap-big {
+        font-size: 56px;
+    }
+
+    .recap-photo-wrap {
+        width: 120px;
+        height: 120px;
+    }
+
+    .recap-photo-placeholder {
+        font-size: 32px;
+    }
+
+}
+
+
+/* =========================================================
+   LANDSCAPE ORIENTATION ON PHONES
+   ========================================================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .header {
+        height: 60px;
+    }
+
+    .recap-card {
+        min-height: 300px;
+        padding: 22px 24px;
+    }
+
+    .recap-big {
+        font-size: 56px;
+    }
+
+    .modal {
+        max-height: 95vh;
+        padding: 18px;
+    }
+
+}
+
+
+/* =========================================================
+   TOUCH TARGETS (mobile)
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+
+    /* Buttons become easier to tap */
+    .filter-button,
+    .primary-button,
+    .secondary-button,
+    .danger-button,
+    .wish-reserve,
+    .wish-bought,
+    .item-delete,
+    .item-edit,
+    .memory-delete,
+    .date-card-delete,
+    .cycle-history-delete,
+    .timeline-event-delete {
+        min-height: 40px;
+    }
+
+    /* Hover-only affordances become always visible */
+    .date-card-delete,
+    .timeline-event-delete {
+        opacity: 1;
+    }
+
+    /* Improve taps on links */
+    .nav-link {
+        min-height: 44px;
+    }
+
+}
+
+
+/* =========================================================
+   SAFE AREA (iPhones with notch)
+   ========================================================= */
+
+@supports (padding: env(safe-area-inset-bottom)) {
+
+    .sidebar {
+        padding-bottom: calc(28px + env(safe-area-inset-bottom));
+    }
+
+    .notify-banner-stack {
+        bottom: calc(16px + env(safe-area-inset-bottom));
+    }
+
+    .toast-stack {
+        top: calc(14px + env(safe-area-inset-top));
+    }
+
+}

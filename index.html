@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>UsList — Our Little Adventures</title>
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="js/theme.js"></script>
+    <meta name="theme-color" content="#f8f6f4">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <aside class="sidebar" id="sidebar">
+
+            <div class="sidebar-top">
+
+                <a href="index.html" class="brand">
+                    <span class="brand-icon">
+                        <i class='bx bx-heart'></i>
+                    </span>
+
+                    <span class="brand-name">UsList</span>
+                </a>
+
+                <button class="sidebar-close" id="sidebarClose">
+                    <i class='bx bx-x'></i>
+                </button>
+
+            </div>
+
+            <nav class="navigation">
+
+                <p class="nav-label">MENU</p>
+
+                <a href="index.html" class="nav-link active">
+                    <i class='bx bx-grid-alt'></i>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="pages/bucket-list.html" class="nav-link">
+                    <i class='bx bx-list-check'></i>
+                    <span>Bucket List</span>
+                </a>
+
+                <a href="pages/memories.html" class="nav-link">
+                    <i class='bx bx-images'></i>
+                    <span>Memories</span>
+                </a>
+
+                <p class="nav-label">US</p>
+
+               <a href="pages/dates.html" class="nav-link">
+    <i class="bx bx-calendar-heart"></i>
+    <span>Our Dates</span>
+</a>
+
+<a href="pages/timeline.html" class="nav-link">
+    <i class="bx bx-book-heart"></i>
+    <span>Our Story</span>
+</a>
+
+            <a href="pages/cycle.html" class="nav-link">
+                <i class="bx bx-pulse"></i>
+                <span>Cycle</span>
+            </a>
+
+            <a href="pages/recap.html" class="nav-link">
+                <i class="bx bx-party"></i>
+                <span>Recap</span>
+            </a>
+
+            <a href="pages/wishlist.html" class="nav-link">
+                <i class="bx bx-gift"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="pages/notes.html" class="nav-link">
+                <i class="bx bx-note"></i>
+                <span>Notes</span>
+            </a>
+
+            <a href="pages/capsule.html" class="nav-link">
+                <i class="bx bx-time"></i>
+                <span>Capsule</span>
+            </a>
+
+
+
+
+
+
+                <a href="pages/profile.html" class="nav-link">
+                    <i class='bx bx-user'></i>
+                    <span>Profile</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="couple-mini">
+
+                    <div class="couple-avatar"><i class="bx bx-heart"></i><span class="partner-dot idle" id="partnerDot"></span></div>
+
+                    <div class="couple-info">
+    <strong>Us</strong>
+    <span id="partnerStatus">Offline</span>
+</div>
+
+                    <button class="icon-button">
+                        <i class='bx bx-dots-vertical-rounded'></i>
+                    </button>
+
+                </div>
+
+                <button class="sidebar-logout" id="logoutButton" type="button">
+                    <i class='bx bx-log-out'></i>
+                    <span>Log Out</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <main class="main">
+
+            <header class="header">
+
+                <button class="menu-button" id="menuButton">
+                    <i class='bx bx-menu'></i>
+                </button>
+
+                <div class="header-title">
+                    <span id="greeting">Good evening</span>
+                    <h1>Our little world</h1>
+                </div>
+
+                <div class="header-actions">
+
+                    <button
+                        class="icon-button search-trigger"
+                        id="openSearch"
+                        aria-label="Search"
+                        type="button"
+                    >
+                        <i class='bx bx-search'></i>
+                    </button>
+
+                    <button class="profile-button">
+                        <i class='bx bx-user'></i>
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <section class="content">
+
+                <section class="hero-card">
+
+                    <div class="hero-content">
+
+                        <span class="eyebrow">
+                            <i class='bx bx-heart'></i>
+                            OUR JOURNEY
+                        </span>
+
+                        <h2>
+                            Every adventure<br>
+                            starts with <span>us.</span>
+                        </h2>
+
+                        <p>
+                            Keep track of the places, experiences,
+                            dreams and little moments you want to
+                            share together.
+                        </p>
+
+                        <a href="pages/bucket-list.html" class="primary-button">
+                            <i class='bx bx-plus'></i>
+                            Add something
+                        </a>
+
+                    </div>
+
+                    <div class="hero-decoration">
+                        <i class='bx bx-heart'></i>
+                    </div>
+
+                </section>
+
+
+                <!-- ==================== NEXT DATE ==================== -->
+
+                
+                <!-- ==================== CYCLE PROMPT ==================== -->
+
+                <div
+                    class="dashboard-cycle-prompt"
+                    id="dashboardCyclePrompt"
+                    hidden
+                >
+
+                    <div class="dashboard-cycle-icon">
+                        <i class="bx bx-droplet"></i>
+                    </div>
+
+                    <div class="dashboard-cycle-info">
+                        <strong id="cyclePromptTitle">Period may be starting soon</strong>
+                        <p id="cyclePromptText">
+                            Tap to log it quickly.
+                        </p>
+                    </div>
+
+                    <a
+                        href="pages/cycle.html"
+                        class="primary-button dashboard-cycle-button"
+                    >
+                        <i class="bx bx-plus"></i>
+                        Log period
+                    </a>
+
+                </div>
+
+
+<div
+                    class="dashboard-next-date"
+                    id="dashboardNextDate"
+                    hidden
+                >
+
+                    <div class="dashboard-next-date-info">
+                        <span>NEXT UP</span>
+                        <h3 id="dashDateTitle">—</h3>
+                        <p id="dashDateLabel">—</p>
+                    </div>
+
+                    <div class="dashboard-next-date-timer">
+                        <div class="dates-timer-block">
+                            <strong id="dashDays">00</strong><span>Days</span>
+                        </div>
+                        <div class="dates-timer-block">
+                            <strong id="dashHours">00</strong><span>Hrs</span>
+                        </div>
+                        <div class="dates-timer-block">
+                            <strong id="dashMinutes">00</strong><span>Min</span>
+                        </div>
+                        <div class="dates-timer-block">
+                            <strong id="dashSeconds">00</strong><span>Sec</span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <section class="stats-grid">
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-list-check'></i>
+                        </div>
+                        <div class="stat-content">
+                            <span>Total adventures</span>
+                            <strong id="statTotal">0</strong>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-check-circle'></i>
+                        </div>
+                        <div class="stat-content">
+                            <span>Completed</span>
+                            <strong id="statCompleted">0</strong>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-images'></i>
+                        </div>
+                        <div class="stat-content">
+                            <span>Memories</span>
+                            <strong id="statMemories">0</strong>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class='bx bx-trending-up'></i>
+                        </div>
+                        <div class="stat-content">
+                            <span>Progress</span>
+                            <strong id="statProgress">0%</strong>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <!-- ==================== FOOD PICKER ==================== -->
+
+                <section class="panel food-picker-panel" id="foodPickerPanel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <span class="panel-eyebrow">
+                                MEAL PICKER
+                            </span>
+                            <h3>What should we cook?</h3>
+                        </div>
+
+                        <div class="food-picker-icon">
+                            <i class='bx bx-restaurant'></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="food-picker-display" id="foodDisplay">
+                        <span class="food-picker-placeholder">
+                            Let the app decide tonight's meal
+                        </span>
+                    </div>
+
+
+                    <button
+                        class="food-picker-button"
+                        id="foodPickerButton"
+                        type="button"
+                    >
+                        <i class='bx bx-shuffle'></i>
+                        Pick a dish
+                    </button>
+
+
+                    <div class="food-picker-actions" id="foodPickerActions" hidden>
+
+                        <button
+                            class="food-picker-cooked"
+                            id="foodCookedButton"
+                            type="button"
+                        >
+                            <i class='bx bx-check'></i>
+                            We cooked this
+                        </button>
+
+                        <button
+                            class="food-picker-other"
+                            id="foodOtherButton"
+                            type="button"
+                        >
+                            <i class='bx bx-edit'></i>
+                            Cooked something else
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- ==================== OUR PROGRESS ==================== -->
+
+                <section class="panel progress-panel" style="margin-top:20px;">
+
+                    <div class="panel-header">
+                        <div>
+                            <span class="panel-eyebrow">BUCKET LIST</span>
+                            <h3>Our progress</h3>
+                        </div>
+                        <a href="pages/bucket-list.html">
+                            View all
+                            <i class='bx bx-right-arrow-alt'></i>
+                        </a>
+                    </div>
+
+                    <div class="progress-circle" id="progressCircle">
+                        <div class="progress-inner">
+                            <strong id="progressPercent">0%</strong>
+                            <span>completed</span>
+                        </div>
+                    </div>
+
+                    <div class="progress-details">
+                        <div>
+                            <span class="progress-dot completed"></span>
+                            <span>Completed</span>
+                            <strong id="progressCompleted">0</strong>
+                        </div>
+                        <div>
+                            <span class="progress-dot remaining"></span>
+                            <span>Remaining</span>
+                            <strong id="progressRemaining">0</strong>
+                        </div>
+                    </div>
+
+                </section>
+
+
+
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/notifications.js"></script>
+    <script type="module" src="js/dates-notifications.js"></script>
+    <script type="module" src="js/dashboard-dates.js"></script>
+    <script src="js/sidebar.js"></script>
+    <script type="module" src="js/presence.js"></script>
+    <script src="js/greeting.js"></script>
+    <script type="module" src="js/dashboard-cycle.js"></script>
+    <script type="module" src="js/dashboard-stats.js"></script>
+    <script type="module" src="js/search.js"></script>
+
+    <script type="module" src="js/food-picker.js"></script>
+
+    <script type="module" src="js/cycle-notifications.js"></script>
+
+
+
+<!-- ==================== SEARCH OVERLAY ==================== -->
+
+<div class="search-overlay" id="searchOverlay" hidden>
+
+    <div class="search-backdrop" id="searchBackdrop"></div>
+
+    <div class="search-panel">
+
+        <div class="search-bar">
+
+            <i class="bx bx-search"></i>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search items, memories, dates…"
+                autocomplete="off"
+                spellcheck="false"
+            >
+
+            <button
+                class="search-close"
+                id="closeSearch"
+                aria-label="Close search"
+                type="button"
+            >
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+        <div class="search-filters" id="searchFilters">
+
+            <button class="search-filter active" data-filter="all">All</button>
+            <button class="search-filter" data-filter="items">Bucket List</button>
+            <button class="search-filter" data-filter="memories">Memories</button>
+            <button class="search-filter" data-filter="dates">Dates</button>
+            <button class="search-filter" data-filter="notes">Notes</button>
+
+        </div>
+
+
+        <div class="search-results" id="searchResults">
+
+            <div class="search-hint" id="searchHint">
+                <i class="bx bx-search-alt"></i>
+                <p>Start typing to search across everything.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================== COOK LOG MODAL ==================== -->
+
+<div class="modal-overlay" id="cookLogModal">
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="panel-eyebrow">TONIGHT'S MEAL</span>
+                <h3>What did we cook?</h3>
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeCookLog"
+                type="button"
+                aria-label="Close"
+            >
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+        <form id="cookLogForm">
+
+            <div class="form-group">
+                <label>Which meal?</label>
+
+                <div class="meal-options">
+
+                    <label class="meal-option">
+                        <input type="radio" name="cookMeal" value="breakfast">
+                        <span><i class="bx bx-coffee"></i> Breakfast</span>
+                    </label>
+
+                    <label class="meal-option">
+                        <input type="radio" name="cookMeal" value="lunch" checked>
+                        <span><i class="bx bx-sun"></i> Lunch</span>
+                    </label>
+
+                    <label class="meal-option">
+                        <input type="radio" name="cookMeal" value="dinner">
+                        <span><i class="bx bx-moon"></i> Dinner</span>
+                    </label>
+
+                    <label class="meal-option">
+                        <input type="radio" name="cookMeal" value="snack">
+                        <span><i class="bx bx-cookie"></i> Snack</span>
+                    </label>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cookName">Dish name</label>
+                <input
+                    type="text"
+                    id="cookName"
+                    maxlength="80"
+                    placeholder="e.g. Rice and beans"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="cookDate">Date</label>
+                <input type="date" id="cookDate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cookNotes">
+                    Notes <span>Optional</span>
+                </label>
+                <textarea
+                    id="cookNotes"
+                    maxlength="300"
+                    rows="3"
+                    placeholder="Anything to remember — substitutions, how it went, who cooked..."
+                ></textarea>
+            </div>
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelCookLog"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="cookLogSubmit"
+                >
+                    <i class="bx bx-heart"></i>
+                    Save to memories
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script>
+    // Register service worker for PWA support
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            const scope = location.pathname.includes("/pages/") ? "../" : "./";
+            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+        });
+    }
+</script>
+
+</body>
+</html>

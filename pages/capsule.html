@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Time Capsule | UsList</title>
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="../js/theme.js"></script>
+    <meta name="theme-color" content="#f8f6f4">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <a href="../index.html" class="brand">
+                <span class="brand-icon">
+                    <i class="bx bx-heart"></i>
+                </span>
+                <span class="brand-name">UsList</span>
+            </a>
+
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <p class="nav-label">MENU</p>
+
+            <a href="../index.html" class="nav-link">
+                <i class="bx bx-grid-alt"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bucket-list.html" class="nav-link">
+                <i class="bx bx-list-check"></i>
+                <span>Bucket List</span>
+            </a>
+
+            <a href="memories.html" class="nav-link">
+                <i class="bx bx-images"></i>
+                <span>Memories</span>
+            </a>
+
+            <p class="nav-label">US</p>
+
+            <a href="dates.html" class="nav-link">
+                <i class="bx bx-calendar-heart"></i>
+                <span>Our Dates</span>
+            </a>
+
+            <a href="timeline.html" class="nav-link">
+                <i class="bx bx-book-heart"></i>
+                <span>Our Story</span>
+            </a>
+
+            <a href="cycle.html" class="nav-link">
+                <i class="bx bx-pulse"></i>
+                <span>Cycle</span>
+            </a>
+
+            <a href="recap.html" class="nav-link">
+                <i class="bx bx-party"></i>
+                <span>Recap</span>
+            </a>
+
+            <a href="wishlist.html" class="nav-link">
+                <i class="bx bx-gift"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="notes.html" class="nav-link">
+                <i class="bx bx-note"></i>
+                <span>Notes</span>
+            </a>
+
+            <a href="capsule.html" class="nav-link active">
+                <i class="bx bx-time"></i>
+                <span>Capsule</span>
+            </a>
+
+            <a href="profile.html" class="nav-link">
+                <i class="bx bx-user"></i>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="couple-mini">
+
+                <div class="couple-avatar">
+                    <i class="bx bx-heart"></i>
+                    <span class="partner-dot idle" id="partnerDot"></span>
+                </div>
+
+                <div class="couple-info">
+                    <strong>Us</strong>
+                    <span id="partnerStatus">Offline</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <main class="main">
+
+        <header class="header">
+
+            <button class="menu-button" id="menuButton">
+                <i class="bx bx-menu"></i>
+            </button>
+
+            <div class="header-title">
+                <span>LETTERS TO THE FUTURE</span>
+                <h1>Time Capsule</h1>
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    class="primary-button capsule-add-button"
+                    id="openCapsuleModal"
+                >
+                    <i class="bx bx-plus"></i>
+                    Seal a capsule
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <section class="content capsule-content">
+
+            <div class="bucket-intro capsule-intro">
+
+                <div>
+
+                    <span class="eyebrow capsule-eyebrow">
+                        FOR ANOTHER DAY
+                    </span>
+
+                    <h2>Write now, open later</h2>
+
+                    <p>
+                        Letters sealed until a date you choose —
+                        a small gift to your future selves.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="capsule-filters">
+
+                <button class="filter-button active" data-filter="all">
+                    All
+                </button>
+
+                <button class="filter-button" data-filter="locked">
+                    Locked
+                </button>
+
+                <button class="filter-button" data-filter="unlocked">
+                    Unlocked
+                </button>
+
+            </div>
+
+
+
+            <div class="capsule-grid" id="capsuleGrid"></div>
+
+
+
+            <div class="empty-state" id="capsuleEmptyState">
+
+                <div class="empty-icon">
+                    <i class="bx bx-time"></i>
+                </div>
+
+                <h3>No capsules yet</h3>
+
+                <p>
+                    Write a letter to the future —
+                    open it on a day that matters.
+                </p>
+
+                <button
+                    class="primary-button"
+                    id="emptyCapsuleButton"
+                >
+                    <i class="bx bx-plus"></i>
+                    Seal your first capsule
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- ==================== WRITE / EDIT MODAL ==================== -->
+
+<div class="modal-overlay" id="capsuleModal">
+
+    <div class="modal note-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="panel-eyebrow" id="capsuleModalEyebrow">
+                    NEW CAPSULE
+                </span>
+                <h3 id="capsuleModalTitle">Seal a capsule</h3>
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeCapsuleModal"
+                type="button"
+                aria-label="Close"
+            >
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+        <form id="capsuleForm">
+
+            <div class="form-group">
+                <label for="capsuleTitle">Title</label>
+                <input
+                    type="text"
+                    id="capsuleTitle"
+                    maxlength="120"
+                    placeholder="e.g. To us in one year"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label for="capsuleDate">Unlock on</label>
+                <input
+                    type="date"
+                    id="capsuleDate"
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Who is this for?</label>
+
+                <div class="visibility-options">
+
+                    <label class="visibility-option">
+                        <input
+                            type="radio"
+                            name="capsuleAudience"
+                            value="both"
+                            checked
+                        >
+                        <span>
+                            <i class="bx bx-group"></i>
+                            <div>
+                                <strong>Both of us</strong>
+                                <small>We read it together</small>
+                            </div>
+                        </span>
+                    </label>
+
+                    <label class="visibility-option">
+                        <input
+                            type="radio"
+                            name="capsuleAudience"
+                            value="me"
+                        >
+                        <span>
+                            <i class="bx bx-user"></i>
+                            <div>
+                                <strong>Just me</strong>
+                                <small>Only you can open it</small>
+                            </div>
+                        </span>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="capsuleBody">Your letter</label>
+                <textarea
+                    id="capsuleBody"
+                    rows="10"
+                    maxlength="10000"
+                    placeholder="Write what you want your future self to read..."
+                    required
+                ></textarea>
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelCapsule"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="capsuleSubmit"
+                >
+                    <i class="bx bx-lock-alt"></i>
+                    Seal capsule
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================== READER MODAL ==================== -->
+
+<div class="modal-overlay" id="capsuleReaderModal">
+
+    <div class="modal note-reader-modal">
+
+        <div class="reader-header">
+
+            <div class="reader-meta">
+                <span class="reader-category" id="capsuleReaderCategory">
+                    Capsule
+                </span>
+                <span class="reader-byline" id="capsuleReaderByline">
+                    By you
+                </span>
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeCapsuleReader"
+                type="button"
+                aria-label="Close"
+            >
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+        <h2 class="reader-title" id="capsuleReaderTitle">Title</h2>
+
+        <div class="reader-body" id="capsuleReaderBody">
+            Body
+        </div>
+
+        <div class="reader-actions" id="capsuleReaderActions"></div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================== DELETE MODAL ==================== -->
+
+<div class="modal-overlay" id="deleteCapsuleModal">
+
+    <div class="modal delete-modal">
+
+        <div class="delete-icon">
+            <i class="bx bx-trash"></i>
+        </div>
+
+        <div class="modal-header delete-header">
+            <div>
+                <h3>Delete capsule?</h3>
+                <p id="deleteCapsuleText">
+                    This capsule will be permanently removed.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-actions">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelCapsuleDelete"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="danger-button"
+                id="confirmCapsuleDelete"
+            >
+                <i class="bx bx-trash"></i>
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/notifications.js"></script>
+<script type="module" src="../js/capsule.js"></script>
+
+
+<script>
+    // Register service worker for PWA support
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            const scope = location.pathname.includes("/pages/") ? "../" : "./";
+            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+        });
+    }
+</script>
+
+</body>
+
+</html>

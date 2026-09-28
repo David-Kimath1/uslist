@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Bucket List — UsList</title>
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="../js/theme.js"></script>
+    <meta name="theme-color" content="#f8f6f4">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+</head>
+
+
+<body>
+
+<div class="app">
+
+
+    <!-- ==================== SIDEBAR ==================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <a href="../index.html" class="brand">
+
+                <span class="brand-icon">
+                    <i class="bx bx-heart"></i>
+                </span>
+
+                <span class="brand-name">
+                    UsList
+                </span>
+
+            </a>
+
+
+            <button
+                class="sidebar-close"
+                id="sidebarClose"
+            >
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <p class="nav-label">
+                MENU
+            </p>
+
+
+            <a
+                href="../index.html"
+                class="nav-link"
+            >
+                <i class="bx bx-grid-alt"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="bucket-list.html"
+                class="nav-link active"
+            >
+                <i class="bx bx-list-check"></i>
+                <span>Bucket List</span>
+            </a>
+
+
+            <a
+                href="memories.html"
+                class="nav-link"
+            >
+                <i class="bx bx-images"></i>
+                <span>Memories</span>
+            </a>
+
+
+            <p class="nav-label">
+                US
+            </p>
+
+            <a href="dates.html" class="nav-link">
+    <i class="bx bx-calendar-heart"></i>
+    <span>Our Dates</span>
+</a>
+
+<a href="timeline.html" class="nav-link">
+    <i class="bx bx-book-heart"></i>
+    <span>Our Story</span>
+</a>
+
+            <a href="cycle.html" class="nav-link">
+                <i class="bx bx-pulse"></i>
+                <span>Cycle</span>
+            </a>
+
+            <a href="recap.html" class="nav-link">
+                <i class="bx bx-party"></i>
+                <span>Recap</span>
+            </a>
+
+            <a href="wishlist.html" class="nav-link">
+                <i class="bx bx-gift"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="notes.html" class="nav-link">
+                <i class="bx bx-note"></i>
+                <span>Notes</span>
+            </a>
+
+            <a href="capsule.html" class="nav-link">
+                <i class="bx bx-time"></i>
+                <span>Capsule</span>
+            </a>
+
+
+
+
+
+
+            <a
+                href="profile.html"
+                class="nav-link"
+            >
+
+                <i class="bx bx-user"></i>
+
+                <span>
+                    Profile
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="couple-mini">
+
+                <div class="couple-avatar"><i class="bx bx-heart"></i><span class="partner-dot idle" id="partnerDot"></span></div>
+
+
+                <div class="couple-info">
+
+                    <strong>
+                        Us
+                    </strong>
+
+                    <span>
+                        Since 2026
+                    </span>
+
+                </div>
+
+
+                <button class="icon-button">
+
+                    <i class="bx bx-dots-vertical-rounded"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ==================== MAIN ==================== -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <button
+                class="menu-button"
+                id="menuButton"
+            >
+
+                <i class="bx bx-menu"></i>
+
+            </button>
+
+
+            <div class="header-title">
+
+                <span>
+                    OUR ADVENTURES
+                </span>
+
+                <h1>
+                    Bucket List
+                </h1>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <button class="profile-button">
+
+                    <i class="bx bx-user"></i>
+
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ==================== CONTENT ==================== -->
+
+        <section class="content bucket-content">
+
+
+            <!-- PAGE INTRO -->
+
+            <div class="bucket-intro">
+
+                <div>
+
+                    <span class="panel-eyebrow">
+                        YOUR JOURNEY
+                    </span>
+
+                    <h2>
+                        Things we want to do together
+                    </h2>
+
+                    <p>
+                        Create your own list of adventures,
+                        dreams and moments you want to share.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    id="openAddModal"
+                >
+
+                    <i class="bx bx-plus"></i>
+
+                    Add item
+
+                </button>
+
+            </div>
+
+
+
+            <!-- ==================== FILTERS ==================== -->
+
+            <div class="bucket-toolbar">
+
+                <div class="bucket-filters">
+
+                    <button
+                        class="filter-button active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-filter="active"
+                    >
+                        Active
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-filter="completed"
+                    >
+                        Completed
+                    </button>
+
+
+                    <button
+                        class="filter-button"
+                        data-filter="private"
+                    >
+                        Private
+                    </button>
+
+                </div>
+
+
+                <div class="bucket-count">
+
+                    <i class="bx bx-list-check"></i>
+
+                    <span id="itemCount">
+                        0 items
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================== LIST ==================== -->
+
+            <div
+                class="bucket-list"
+                id="bucketList"
+            ></div>
+
+
+
+            <!-- ==================== EMPTY STATE ==================== -->
+
+            <div
+                class="empty-state"
+                id="emptyState"
+            >
+
+                <div class="empty-icon">
+
+                    <i class="bx bx-list-plus"></i>
+
+                </div>
+
+
+                <h3>
+                    Your list is empty
+                </h3>
+
+
+                <p id="emptyStateText">
+                    Start creating the adventures,
+                    memories and dreams you want
+                    to experience together.
+                </p>
+
+
+                <button
+                    class="primary-button"
+                    id="emptyAddButton"
+                >
+
+                    <i class="bx bx-plus"></i>
+
+                    Add your first item
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- ==================== ADD MODAL ==================== -->
+
+<div
+    class="modal-overlay"
+    id="addModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="panel-eyebrow">
+                    NEW ADVENTURE
+                </span>
+
+                <h3>
+                    Add to our bucket list
+                </h3>
+
+            </div>
+
+
+            <button
+                class="modal-close"
+                id="closeAddModal"
+            >
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+
+        <form id="addItemForm">
+
+
+            <div class="form-group">
+
+                <label for="itemTitle">
+                    What do you want to do?
+                </label>
+
+                <input
+                    type="text"
+                    id="itemTitle"
+                    placeholder="e.g. Visit the Kenyan coast"
+                    required
+                    maxlength="100"
+                >
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Category
+                </label>
+
+
+                <div class="category-options">
+
+
+                    <label class="category-option">
+                        <input type="radio" name="category" value="Romance" checked>
+                        <span><i class="bx bx-heart"></i> Romance</span>
+                    </label>
+
+
+                    <label class="category-option">
+                        <input type="radio" name="category" value="Travel">
+                        <span><i class="bx bx-map"></i> Travel</span>
+                    </label>
+
+
+                    <label class="category-option">
+                        <input type="radio" name="category" value="Adventure">
+                        <span><i class="bx bx-run"></i> Adventure</span>
+                    </label>
+
+
+                    <label class="category-option">
+                        <input type="radio" name="category" value="Memories">
+                        <span><i class="bx bx-camera"></i> Memories</span>
+                    </label>
+
+
+                    <label class="category-option">
+                        <input type="radio" name="category" value="Food & Dates">
+                        <span><i class="bx bx-restaurant"></i> Food & Dates</span>
+                    </label>
+
+
+                    <label class="category-option">
+                        <input type="radio" name="category" value="Goals">
+                        <span><i class="bx bx-target-lock"></i> Goals</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label for="itemDescription">
+                    Description
+                    <span>Optional</span>
+                </label>
+
+                <textarea
+                    id="itemDescription"
+                    placeholder="Add a little detail..."
+                    maxlength="250"
+                ></textarea>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <label>
+                    Who can see this?
+                </label>
+
+
+                <div class="visibility-options">
+
+
+                    <label class="visibility-option">
+
+                        <input
+                            type="radio"
+                            name="visibility"
+                            value="shared"
+                            checked
+                        >
+
+                        <span>
+
+                            <i class="bx bx-group"></i>
+
+                            <div>
+                                <strong>Shared</strong>
+                                <small>Both of you can see it</small>
+                            </div>
+
+                        </span>
+
+                    </label>
+
+
+
+                    <label class="visibility-option">
+
+                        <input
+                            type="radio"
+                            name="visibility"
+                            value="private"
+                        >
+
+                        <span>
+
+                            <i class="bx bx-lock-alt"></i>
+
+                            <div>
+                                <strong>Private</strong>
+                                <small>Only you can see it</small>
+                            </div>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelAdd"
+                >
+                    Cancel
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="addItemSubmit"
+                >
+
+                    <i class="bx bx-plus"></i>
+
+                    Add to list
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- DELETE CONFIRMATION MODAL -->
+
+<div class="modal-overlay" id="deleteModal">
+
+    <div class="modal delete-modal">
+
+        <div class="delete-icon">
+            <i class="bx bx-trash"></i>
+        </div>
+
+        <div class="modal-header delete-header">
+            <div>
+                <h2>Delete adventure?</h2>
+                <p id="deleteText">
+                    This adventure will be permanently removed.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-actions">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelDelete"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="danger-button"
+                id="confirmDelete"
+            >
+                <i class="bx bx-trash"></i>
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/notifications.js"></script>
+<script type="module" src="../js/bucketlist.js"></script>
+<script type="module" src="../js/dates-notifications.js"></script>
+
+    <script src="../js/sidebar.js"></script>
+    <script type="module" src="../js/presence.js"></script>
+
+<script>
+    // Register service worker for PWA support
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            const scope = location.pathname.includes("/pages/") ? "../" : "./";
+            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+        });
+    }
+</script>
+
+</body>
+
+</html>

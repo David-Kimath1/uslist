@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Notes | UsList</title>
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="../js/theme.js"></script>
+    <meta name="theme-color" content="#f8f6f4">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
+</head>
+
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <a href="../index.html" class="brand">
+                <span class="brand-icon">
+                    <i class="bx bx-heart"></i>
+                </span>
+                <span class="brand-name">UsList</span>
+            </a>
+
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <p class="nav-label">MENU</p>
+
+            <a href="../index.html" class="nav-link">
+                <i class="bx bx-grid-alt"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="bucket-list.html" class="nav-link">
+                <i class="bx bx-list-check"></i>
+                <span>Bucket List</span>
+            </a>
+
+            <a href="memories.html" class="nav-link">
+                <i class="bx bx-images"></i>
+                <span>Memories</span>
+            </a>
+
+            <p class="nav-label">US</p>
+
+            <a href="dates.html" class="nav-link">
+                <i class="bx bx-calendar-heart"></i>
+                <span>Our Dates</span>
+            </a>
+
+            <a href="timeline.html" class="nav-link">
+                <i class="bx bx-book-heart"></i>
+                <span>Our Story</span>
+            </a>
+
+            <a href="cycle.html" class="nav-link">
+                <i class="bx bx-pulse"></i>
+                <span>Cycle</span>
+            </a>
+
+            <a href="recap.html" class="nav-link">
+                <i class="bx bx-party"></i>
+                <span>Recap</span>
+            </a>
+
+            <a href="wishlist.html" class="nav-link">
+                <i class="bx bx-gift"></i>
+                <span>Wishlist</span>
+            </a>
+
+            <a href="notes.html" class="nav-link active">
+                <i class="bx bx-note"></i>
+                <span>Notes</span>
+            </a>
+
+            <a href="capsule.html" class="nav-link">
+                <i class="bx bx-time"></i>
+                <span>Capsule</span>
+            </a>
+
+
+            <a href="profile.html" class="nav-link">
+                <i class="bx bx-user"></i>
+                <span>Profile</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="couple-mini">
+
+                <div class="couple-avatar">
+                    <i class="bx bx-heart"></i>
+                    <span class="partner-dot idle" id="partnerDot"></span>
+                </div>
+
+                <div class="couple-info">
+                    <strong>Us</strong>
+                    <span id="partnerStatus">Offline</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <main class="main">
+
+        <header class="header">
+
+            <button class="menu-button" id="menuButton">
+                <i class="bx bx-menu"></i>
+            </button>
+
+            <div class="header-title">
+                <span>OUR WORDS</span>
+                <h1>Notes</h1>
+            </div>
+
+            <div class="header-actions">
+
+                <button
+                    class="primary-button notes-add-button"
+                    id="openNoteModal"
+                >
+                    <i class="bx bx-plus"></i>
+                    Write a note
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <section class="content notes-content">
+
+            <div class="bucket-intro notes-intro">
+
+                <div>
+
+                    <span class="eyebrow notes-eyebrow">
+                        THINGS WE WROTE
+                    </span>
+
+                    <h2>A shared journal</h2>
+
+                    <p>
+                        Letters, thoughts, little nothings —
+                        only for the two of you.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="notes-toolbar">
+
+                <div class="bucket-filters">
+
+                    <button class="filter-button active" data-filter="all">
+                        All
+                    </button>
+
+                    <button class="filter-button" data-filter="note">
+                        Notes
+                    </button>
+
+                    <button class="filter-button" data-filter="letter">
+                        Letters
+                    </button>
+
+                    <button class="filter-button" data-filter="memory">
+                        Memories
+                    </button>
+
+                    <button class="filter-button" data-filter="thought">
+                        Thoughts
+                    </button>
+
+                </div>
+
+                <div class="bucket-count">
+                    <i class="bx bx-note"></i>
+                    <span id="notesCount">0 notes</span>
+                </div>
+
+            </div>
+
+
+
+            <div class="notes-grid" id="notesGrid"></div>
+
+
+
+            <div class="empty-state" id="notesEmptyState">
+
+                <div class="empty-icon">
+                    <i class="bx bx-note"></i>
+                </div>
+
+                <h3>No notes yet</h3>
+
+                <p>
+                    Start writing the things you'd want
+                    to read years from now.
+                </p>
+
+                <button
+                    class="primary-button"
+                    id="emptyNoteButton"
+                >
+                    <i class="bx bx-plus"></i>
+                    Write your first note
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- ==================== WRITE / EDIT NOTE MODAL ==================== -->
+
+<div class="modal-overlay" id="noteModal">
+
+    <div class="modal note-modal">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="panel-eyebrow" id="noteModalEyebrow">NEW NOTE</span>
+                <h3 id="noteModalTitle">Write a note</h3>
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeNoteModal"
+                type="button"
+                aria-label="Close"
+            >
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+
+        <form id="noteForm">
+
+            <div class="form-group">
+                <label for="noteTitle">Title</label>
+                <input
+                    type="text"
+                    id="noteTitle"
+                    maxlength="120"
+                    placeholder="A few words..."
+                    required
+                >
+            </div>
+
+
+            <div class="form-group">
+                <label>Type</label>
+
+                <div class="category-options">
+
+                    <label class="category-option">
+                        <input type="radio" name="noteCategory" value="note" checked>
+                        <span><i class="bx bx-note"></i> Note</span>
+                    </label>
+
+                    <label class="category-option">
+                        <input type="radio" name="noteCategory" value="letter">
+                        <span><i class="bx bx-envelope"></i> Letter</span>
+                    </label>
+
+                    <label class="category-option">
+                        <input type="radio" name="noteCategory" value="memory">
+                        <span><i class="bx bx-photo-album"></i> Memory</span>
+                    </label>
+
+                    <label class="category-option">
+                        <input type="radio" name="noteCategory" value="thought">
+                        <span><i class="bx bx-bulb"></i> Thought</span>
+                    </label>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="noteBody">Body</label>
+                <textarea
+                    id="noteBody"
+                    rows="10"
+                    maxlength="5000"
+                    placeholder="Write freely..."
+                    required
+                ></textarea>
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelNote"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                    id="noteSubmit"
+                >
+                    <i class="bx bx-check"></i>
+                    Save note
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================== READER MODAL ==================== -->
+
+<div class="modal-overlay" id="readerModal">
+
+    <div class="modal note-reader-modal">
+
+        <div class="reader-header">
+
+            <div class="reader-meta">
+                <span class="reader-category" id="readerCategory">Note</span>
+                <span class="reader-byline" id="readerByline">By @you · Today</span>
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeReader"
+                type="button"
+                aria-label="Close"
+            >
+                <i class="bx bx-x"></i>
+            </button>
+
+        </div>
+
+        <h2 class="reader-title" id="readerTitle">Title</h2>
+
+        <div class="reader-body" id="readerBody">Body</div>
+
+        <div class="reader-actions" id="readerActions"></div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ==================== DELETE MODAL ==================== -->
+
+<div class="modal-overlay" id="deleteNoteModal">
+
+    <div class="modal delete-modal">
+
+        <div class="delete-icon">
+            <i class="bx bx-trash"></i>
+        </div>
+
+        <div class="modal-header delete-header">
+            <div>
+                <h3>Delete note?</h3>
+                <p id="deleteNoteText">
+                    This note will be permanently removed.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-actions">
+
+            <button
+                type="button"
+                class="secondary-button"
+                id="cancelNoteDelete"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="button"
+                class="danger-button"
+                id="confirmNoteDelete"
+            >
+                <i class="bx bx-trash"></i>
+                Delete
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<script type="module" src="../js/auth.js"></script>
+<script type="module" src="../js/notifications.js"></script>
+<script type="module" src="../js/notes.js"></script>
+
+
+<script>
+    // Register service worker for PWA support
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            const scope = location.pathname.includes("/pages/") ? "../" : "./";
+            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+        });
+    }
+</script>
+
+</body>
+
+</html>
