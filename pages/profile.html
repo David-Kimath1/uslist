@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
 
@@ -10,7 +10,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Profile | UsList</title>
+    <title>Profile | His 'n' Hers</title>
 
 
     <!-- ==================== GOOGLE FONTS ==================== -->
@@ -56,9 +56,7 @@
         rel="stylesheet"
         href="../css/responsive.css"
     >
-
-    <script src="../js/theme.js"></script>
-    <meta name="theme-color" content="#f8f6f4">
+    <meta name="theme-color" content="#fdf9f7">
     <link rel="manifest" href="../manifest.json">
     <link rel="apple-touch-icon" href="../assets/icons/icon-192.png">
 </head>
@@ -93,9 +91,7 @@
 
             </span>
 
-            <span class="brand-name">
-                UsList
-            </span>
+            <span class="brand-name">His 'n' Hers</span>
 
         </a>
 
@@ -643,13 +639,147 @@
                 ></div>
 
 
+            
+
+            <!-- =================================================
+                 SECURITY / APP LOCK
+                 ================================================= -->
+
+            <div class="panel security-panel" id="securityPanel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span class="panel-eyebrow">
+                            PRIVACY
+                        </span>
+                        <h2>
+                            App Lock
+                        </h2>
+                        <p>
+                            Require a PIN or fingerprint to open
+                            His 'n' Hers.
+                        </p>
+                    </div>
+
+                    <div class="panel-heading-icon">
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+
+                </div>
+
+
+                <!-- TOGGLE -->
+
+                <div class="security-toggle-row">
+
+                    <div>
+                        <strong>
+                            Lock this app
+                        </strong>
+                        <span>
+                            Locks 2 minutes after you leave
+                        </span>
+                    </div>
+
+                    <label class="toggle-switch">
+
+                        <input
+                            type="checkbox"
+                            id="lockEnabled"
+                        >
+
+                        <span class="toggle-slider"></span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- RECOVERY CODE -->
+
+                <div
+                    class="security-recovery"
+                    id="recoverySection"
+                    hidden
+                >
+
+                    <label>
+                        Recovery code
+                    </label>
+
+                    <div class="recovery-row">
+
+                        <strong id="recoveryCodeDisplay">
+                            ----------
+                        </strong>
+
+                        <button
+                            class="copy-btn"
+                            id="copyRecoveryBtn"
+                            type="button"
+                        >
+                            <i class="bx bx-copy"></i>
+                            Copy
+                        </button>
+
+                    </div>
+
+                    <small>
+                        Save this code. You'll need it if
+                        you forget your PIN.
+                    </small>
+
+                </div>
+
+
+
+                <!-- ACTIONS -->
+
+                <div class="security-actions">
+
+                    <button
+                        class="secondary-button security-btn"
+                        id="changePinBtn"
+                        type="button"
+                        hidden
+                    >
+                        <i class="bx bx-key"></i>
+                        Change PIN
+                    </button>
+
+
+                    <button
+                        class="secondary-button security-btn"
+                        id="biometricBtn"
+                        type="button"
+                        hidden
+                    >
+                        <i class="bx bx-fingerprint"></i>
+                        Enable Fingerprint
+                    </button>
+
+
+                    <button
+                        class="secondary-button security-btn"
+                        id="lockNowBtn"
+                        type="button"
+                        hidden
+                    >
+                        <i class="bx bx-lock"></i>
+                        Lock Now
+                    </button>
+
+                </div>
+
             </div>
 
+</div>
 
-        </div>
 
 
-    </section>
+            
 
 
 </main>
@@ -1250,6 +1380,8 @@
 </script>
 
 <script type="module" src="../js/auth.js"></script>
+    <script type="module" src="../js/profile-security.js"></script>
+<script type="module" src="../js/app-loaders.js"></script>
 <script type="module" src="../js/notifications.js"></script>
 <script type="module" src="../js/dates-notifications.js"></script>
 

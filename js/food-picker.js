@@ -11,70 +11,136 @@ import {
 
 import { logEvent } from "./timeline-logger.js";
 import { toastError, toastWarning } from "./toast.js";
+import { confirmDialog as confirmAction } from "./confirm.js";
 
 
 // ==================== SEED DISHES ====================
 
 const SEED_DISHES = [
-    "Spaghetti Bolognese",
-    "Chicken Curry & Rice",
-    "Grilled Fish & Ugali",
-    "Beef Stew & Chapati",
-    "Vegetable Stir Fry",
-    "Homemade Pizza",
-    "Tacos",
-    "Pilau & Kachumbari",
-    "Shakshuka",
-    "Pancakes",
-    "Nyama Choma & Kachumbari",
-    "Thai Green Curry",
-    "Burger Night",
-    "Fajitas",
-    "Sushi Bowl",
-    "Chicken Wings & Fries",
-    "Shepherd's Pie",
-    "Fried Rice & Chicken",
-    "Soup & Grilled Cheese",
-    "Creamy Carbonara",
-    "Biriani",
-    "Veggie Buddha Bowl",
-    "Meatballs & Mash",
-    "Quesadillas",
-    "Chicken Shawarma",
+    // ============ MAINS ============
     "Ugali & Sukuma Wiki",
-    "Fish Tacos",
-    "Ramen",
-    "Chili con Carne",
-    "Breakfast Burrito",
+    "Ugali & Spinach",
+    "Ugali, Sukuma & Spinach",
+    "Ugali & Nyama Choma",
+    "Ugali & Fish",
+    "Ugali & Liver",
     "Chapati & Beans",
-    "Matoke & Beef",
-    "Githeri",
-    "Mukimo & Beef Stew",
+    "Chapati & Ndengu",
+    "Chapati & Beef Stew",
+    "Chapati & Chicken Stew",
+    "Chapati & Madondo",
     "Rice & Beans",
-    "Pasta Salad",
-    "Omelette & Toast",
-    "Grilled Cheese & Tomato Soup",
-    "Kebabs & Pita",
-    "Stuffed Peppers",
-    "Vegetable Soup & Bread",
-    "Chicken Alfredo",
-    "Beef Stroganoff",
-    "Couscous & Veggies",
-    "Sweet & Sour Chicken",
-    "Baked Salmon & Potatoes",
-    "Fish Curry",
-    "Bean Burrito Bowl",
-    "Wraps & Salad",
-    "Shrimp Fried Rice",
-    "Beef Tacos",
-    "Egg Fried Rice",
-    "Pumpkin Soup",
-    "Lentil Curry",
-    "Cheese Ravioli",
-    "Chicken Quesadilla",
-    "Avocado Toast & Eggs",
-    "Club Sandwich & Fries",
-    "Fish & Chips"
+    "Rice & Ndengu",
+    "Pilau & Kachumbari",
+    "Pilau & Chicken",
+    "Biriani & Kachumbari",
+    "Coconut Rice & Fish Curry",
+    "Wali wa Nazi & Maharage",
+    "Githeri",
+    "Githeri & Avocado",
+    "Mukimo & Beef Stew",
+    "Mukimo & Nyama Choma",
+    "Matoke & Beef",
+    "Matoke & Peanut Sauce",
+    "Mashed Potatoes & Beef",
+    "Chicken Stew & Rice",
+    "Beef Stew & Rice",
+    "Beef Stew & Chapati",
+    "Goat Meat Stew",
+    "Nyama Choma & Kachumbari",
+    "Nyama Choma & Ugali",
+    "Kuku Choma & Fries",
+    "Fried Fish & Ugali",
+    "Tilapia Wet Fry",
+    "Tilapia Dry Fry",
+    "Fish Curry & Rice",
+    "Grilled Tilapia & Chips",
+    "Liver & Onions",
+    "Beef Fry (Dry Fry)",
+    "Chicken Dry Fry",
+    "Mutton Stew",
+    "Mutton Biriani",
+
+    // ============ STREET FOOD & SNACKS ============
+    "Samosa (Beef)",
+    "Samosa (Chicken)",
+    "Samosa (Vegetable)",
+    "Sausage Roll",
+    "Meat Pie",
+    "Chicken Pie",
+    "Smokie Pasua",
+    "Smokie & Kachumbari",
+    "Sausage & Chips",
+    "Chips Masala",
+    "Chips Mayai",
+    "Bhajia",
+    "Viazi Karai",
+    "Chapati & Ndengu (Street Style)",
+    "Mutura",
+    "Kebab (Mishkaki)",
+    "Roasted Maize (Mahindi Choma)",
+    "Boiled Maize & Beans",
+    "Roasted Cassava (Muhogo)",
+    "Boiled Cassava (Muhogo)",
+    "Cassava Crisps",
+    "Arrowroot (Nduma)",
+    "Sweet Potatoes (Ngwaci)",
+    "Boiled Sweet Potatoes & Tea",
+    "Sweet Potato Chips",
+    "Plantain Chips",
+
+    // ============ BREAKFAST ============
+    "Uji (Millet Porridge)",
+    "Uji Power",
+    "Mandazi & Chai",
+    "Mahamri & Mbaazi",
+    "Mahamri & Chai",
+    "Chapati & Chai",
+    "Chapati Madondo",
+    "Kaimati",
+    "Vitumbua",
+    "Kebab & Chai",
+    "Boiled Eggs & Chai",
+    "Omelette & Bread",
+    "Toast, Butter & Jam",
+    "Pancakes & Syrup",
+    "Kenyan Tea (Chai ya Maziwa)",
+    "Black Tea (Chai ya Rangi)",
+    "Ginger Tea",
+    "Lemon Tea",
+
+    // ============ SIDES & ACCOMPANIMENTS ============
+    "Sukuma Wiki",
+    "Spinach",
+    "Kunde",
+    "Spinach & Cream",
+    "Cabbage & Carrots",
+    "Kachumbari",
+    "Ndengu (Green Grams)",
+    "Beans (Maharagwe)",
+    "Madondo (Black Beans)",
+    "Avocado Slices",
+    "Roasted Groundnuts",
+
+    // ============ DESSERTS & SWEETS ============
+    "Kaimati (Sweet)",
+    "Vitumbua (Coconut)",
+    "Fruit Salad",
+    "Mango Slices",
+    "Watermelon",
+    "Pineapple",
+    "Ice Cream",
+    "Chocolate Cake",
+    "Mandazi (Sweet)",
+
+    // ============ DRINKS ============
+    "Passion Juice",
+    "Mango Juice",
+    "Avocado Smoothie",
+    "Tamarind Juice (Ukwaju)",
+    "Dawa (Honey & Lemon)",
+    "Fresh Sugarcane Juice",
+    "Coconut Water",
 ];
 
 
@@ -408,3 +474,100 @@ function capitalize(str) {
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
+
+
+
+// ==================== SYNC DISH LIST ====================
+
+const resetBtn = document.getElementById("resetDishesBtn");
+
+resetBtn?.addEventListener("click", async () => {
+
+    const ok = await confirmAction({
+        title: "Sync dish list?",
+        message: "This adds new dishes from the code list and removes ones no longer there. Dishes you added manually are kept.",
+        confirmText: "Sync",
+        cancelText: "Cancel",
+        variant: "primary",
+        icon: "bx-refresh"
+    });
+
+    if (!ok) return;
+
+    try {
+
+        resetBtn.disabled = true;
+        resetBtn.innerHTML =
+            '<i class="bx bx-loader-alt bx-spin"></i> Syncing...';
+
+        const { getDocs, deleteDoc } = await import(
+            "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js"
+        );
+
+        const ref = collection(db, "couples", coupleId, "foodDishes");
+        const snap = await getDocs(ref);
+
+        // Build a map of existing dishes: nameLower -> doc
+        const existing = new Map();
+        snap.docs.forEach((d) => {
+            const data = d.data();
+            const key = (data.name || "").toLowerCase().trim();
+            if (key) existing.set(key, d);
+        });
+
+        // Build the desired list from code
+        const desired = new Map();
+        SEED_DISHES.forEach((name) => {
+            desired.set(name.toLowerCase().trim(), name);
+        });
+
+        let added = 0;
+        let removed = 0;
+
+        // ADD: things in code but not in Firestore
+        for (const [key, name] of desired) {
+            if (!existing.has(key)) {
+                await addDoc(ref, {
+                    name,
+                    addedBy: currentUser.uid,
+                    source: "seed",
+                    createdAt: serverTimestamp()
+                });
+                added++;
+            }
+        }
+
+        // REMOVE: things in Firestore but not in code
+        // ONLY remove ones tagged as "seed" — keep user-added dishes
+        for (const [key, docSnap] of existing) {
+            const data = docSnap.data();
+            const isSeed = data.source === "seed";
+
+            if (!desired.has(key) && isSeed) {
+                await deleteDoc(docSnap.ref);
+                removed++;
+            }
+        }
+
+        console.log(`✓ Synced: +${added} added, -${removed} removed`);
+
+        resetBtn.innerHTML =
+            `<i class="bx bx-check"></i> Done (+${added} / -${removed})`;
+
+        setTimeout(() => {
+            resetBtn.disabled = false;
+            resetBtn.innerHTML =
+                '<i class="bx bx-refresh"></i> Sync dish list';
+        }, 3000);
+
+    } catch (error) {
+
+        console.error("Sync error:", error);
+        resetBtn.disabled = false;
+        resetBtn.innerHTML =
+            '<i class="bx bx-refresh"></i> Sync dish list';
+        toastError("Sync failed. Check the console.");
+
+    }
+
+});

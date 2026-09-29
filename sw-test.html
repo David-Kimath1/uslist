@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SW Update Test — His 'n' Hers</title>
+
+    <link
+        href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+        rel="stylesheet"
+    >
+
+    <style>
+        :root {
+            --primary: #b8728a;
+            --primary-dark: #9a5a72;
+            --primary-soft: #f4dfe6;
+            --bg: #fdf9f7;
+            --surface: #ffffff;
+            --surface-soft: #f8f2f0;
+            --text: #2f2a2d;
+            --text-soft: #6b5f63;
+            --text-muted: #9b8f93;
+            --border: #ebdcd8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .demo {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: Georgia, serif;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .sub {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .panel {
+            padding: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+
+        .panel h2 {
+            font-size: 15px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .panel p {
+            color: var(--text-muted);
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.2s;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        button:hover {
+            background: var(--primary-dark);
+        }
+
+        button.secondary {
+            background: var(--surface-soft);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        button.secondary:hover {
+            background: var(--border);
+        }
+
+        /* ========== UPDATE BANNER (bottom-right) ========== */
+
+        .update-banner {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 900;
+
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            max-width: 380px;
+
+            padding: 14px 18px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+
+            opacity: 0;
+            transform: translateY(20px);
+            visibility: hidden;
+
+            transition: all 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
+        }
+
+        .update-banner.show {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .update-banner-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--primary);
+            background: var(--primary-soft);
+
+            border-radius: 50%;
+            font-size: 20px;
+        }
+
+        .update-banner-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .update-banner-body strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .update-banner-body p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        .update-banner-btn {
+            padding: 8px 14px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            flex-shrink: 0;
+            margin: 0;
+        }
+
+        .update-banner-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* ========== FULL-SCREEN LOADER ========== */
+
+        .update-loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 24px;
+
+            background: rgba(253, 249, 247, 0.96);
+            backdrop-filter: blur(8px);
+
+            opacity: 0;
+            visibility: hidden;
+
+            transition: opacity 0.3s;
+        }
+
+        .update-loader.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .loader-heart-wrap {
+            width: 84px;
+            height: 84px;
+
+            display: grid;
+            place-items: center;
+
+            color: var(--primary);
+            background: var(--primary-soft);
+
+            border-radius: 50%;
+        }
+
+        .loader-heart {
+            font-size: 40px;
+            animation: heart-pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes heart-pulse {
+            0%, 100% { transform: scale(1); }
+            50%      { transform: scale(1.18); }
+        }
+
+        .loader-text {
+            font-family: Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .loader-sub {
+            margin-top: -18px;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+
+        .loader-dots::after {
+            content: "";
+            animation: dots 1.4s steps(4, end) infinite;
+        }
+
+        @keyframes dots {
+            0%   { content: ""; }
+            25%  { content: "."; }
+            50%  { content: ".."; }
+            75%  { content: "..."; }
+            100% { content: ""; }
+        }
+
+        /* ========== DEMO CONTROLS ========== */
+
+        .kbd {
+            display: inline-block;
+            padding: 2px 7px;
+            background: var(--surface-soft);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 11px;
+            margin: 0 2px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="demo">
+
+    <h1>Update Flow — Test</h1>
+    <p class="sub">
+        A preview of how the "new version available" notification
+        and loader would look inside the real app.
+    </p>
+
+    <div class="panel">
+        <h2>1. The Update Banner</h2>
+        <p>
+            Appears when a new version is detected. Bottom-right of the
+            screen. Stays until the user either updates or dismisses it.
+        </p>
+        <button onclick="showBanner()">
+            <i class='bx bx-bell'></i> Show update banner
+        </button>
+        <button class="secondary" onclick="hideBanner()">
+            Hide banner
+        </button>
+    </div>
+
+    <div class="panel">
+        <h2>2. The Loader</h2>
+        <p>
+            Full-screen overlay that appears after clicking "Update".
+            Blocks interaction, shows a pulsing heart, then refreshes.
+        </p>
+        <button onclick="showLoader()">
+            <i class='bx bx-loader-alt'></i> Show loader
+        </button>
+        <button class="secondary" onclick="hideLoader()">
+            Hide loader
+        </button>
+    </div>
+
+    <div class="panel">
+        <h2>3. Full Flow</h2>
+        <p>
+            Complete experience: banner appears → user clicks Update →
+            loader shows → app reloads with new version.
+        </p>
+        <button onclick="fullFlow()">
+            <i class='bx bx-refresh'></i> Run full update flow
+        </button>
+    </div>
+
+    <div class="panel">
+        <h2>Notes</h2>
+        <p>
+            This is just the visual demo. In the real app, the banner
+            would appear automatically when a new service worker is
+            detected. The loader would only show for ~1.5s then the
+            page reloads.
+        </p>
+    </div>
+
+</div>
+
+
+<!-- ==================== UPDATE BANNER ==================== -->
+
+<div class="update-banner" id="updateBanner">
+    <div class="update-banner-icon">
+        <i class='bx bx-cloud-download'></i>
+    </div>
+
+    <div class="update-banner-body">
+        <strong>New version ready</strong>
+        <p>Update to get the latest features</p>
+    </div>
+
+    <button class="update-banner-btn" onclick="startUpdate()">
+        Update
+    </button>
+</div>
+
+
+<!-- ==================== FULL-SCREEN LOADER ==================== -->
+
+<div class="update-loader" id="updateLoader">
+    <div class="loader-heart-wrap">
+        <i class='bx bx-heart loader-heart'></i>
+    </div>
+
+    <div class="loader-text">Updating</div>
+
+    <div class="loader-sub">
+        Just a moment<span class="loader-dots"></span>
+    </div>
+</div>
+
+
+<script>
+    const banner = document.getElementById("updateBanner");
+    const loader = document.getElementById("updateLoader");
+
+    function showBanner() {
+        banner.classList.add("show");
+    }
+
+    function hideBanner() {
+        banner.classList.remove("show");
+    }
+
+    function showLoader() {
+        loader.classList.add("show");
+    }
+
+    function hideLoader() {
+        loader.classList.remove("show");
+    }
+
+    function startUpdate() {
+        hideBanner();
+        showLoader();
+
+        // In the real app, this would:
+        // 1. Tell the waiting service worker to activate
+        // 2. Reload the page
+        setTimeout(() => {
+            hideLoader();
+            console.log("Would reload the page here");
+        }, 2200);
+    }
+
+    function fullFlow() {
+        // Simulate the complete experience
+        showBanner();
+
+        // Auto-trigger the update after 1.5s (demo only)
+        setTimeout(() => {
+            startUpdate();
+        }, 1500);
+    }
+</script>
+
+</body>
+</html>

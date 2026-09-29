@@ -405,24 +405,12 @@ async function joinCouple(
 
 function goToApp() {
 
-    const currentPath =
-        window.location.pathname;
+    const currentPath = window.location.pathname;
 
-
-    if (
-        currentPath.includes(
-            "/pages/"
-        )
-    ) {
-
-        window.location.href =
-            "bucket-list.html";
-
+    if (currentPath.includes("/pages/")) {
+        window.location.href = "../index.html";
     } else {
-
-        window.location.href =
-            "pages/bucket-list.html";
-
+        window.location.href = "index.html";
     }
 
 }
@@ -431,24 +419,12 @@ function goToApp() {
 
 function goToLogin() {
 
-    const currentPath =
-        window.location.pathname;
+    const currentPath = window.location.pathname;
 
-
-    if (
-        currentPath.includes(
-            "/pages/"
-        )
-    ) {
-
-        window.location.href =
-            "login.html";
-
+    if (currentPath.includes("/pages/")) {
+        window.location.href = "login.html";
     } else {
-
-        window.location.href =
-            "pages/login.html";
-
+        window.location.href = "pages/login.html";
     }
 
 }
@@ -845,7 +821,7 @@ async function logoutUser() {
 
 onAuthStateChanged(
     auth,
-    (user) => {
+    async (user) => {
 
 
         const currentPage =
@@ -905,9 +881,33 @@ onAuthStateChanged(
             );
 
 
+            // On auth pages (login/register), just redirect.
             if (isAuthPage) {
 
                 goToApp();
+
+                return;
+
+            }
+
+
+            // On real app pages, check the app lock.
+            if (isProtectedPage || currentPage === "timeline.html" ||
+                currentPage === "cycle.html" || currentPage === "recap.html" ||
+                currentPage === "wishlist.html" || currentPage === "notes.html" ||
+                currentPage === "capsule.html" || currentPage === "dates.html") {
+
+                try {
+
+                    const userRef = doc(db, "users", user.uid);
+                    const { initLock } = await import("./app-lock.js");
+                    await initLock(user, userRef);
+
+                } catch (error) {
+
+                    console.warn("App lock init failed:", error);
+
+                }
 
             }
 

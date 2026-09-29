@@ -2,7 +2,7 @@
 // Caches static assets so the app opens instantly and works offline
 // for already-loaded pages.
 
-const CACHE_NAME = "uslist-v1";
+const CACHE_NAME = "uslist-v2";
 
 const PRECACHE_URLS = [
     "./",
@@ -93,4 +93,14 @@ self.addEventListener("fetch", (event) => {
             )
     );
 
+});
+
+
+// ---------- SKIP WAITING ----------
+// When the app tells us to activate immediately (update available),
+// skip the wait state and take over right away.
+self.addEventListener("message", (event) => {
+    if (event.data && event.data.type === "SKIP_WAITING") {
+        self.skipWaiting();
+    }
 });

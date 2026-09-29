@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>UsList — Our Little Adventures</title>
+    <title>His 'n' Hers — Our Little Adventures</title>
 
     <link
         href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <script src="js/theme.js"></script>
-    <meta name="theme-color" content="#f8f6f4">
+    <meta name="theme-color" content="#fdf9f7">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
 </head>
@@ -33,7 +32,7 @@
                         <i class='bx bx-heart'></i>
                     </span>
 
-                    <span class="brand-name">UsList</span>
+                    <span class="brand-name">His 'n' Hers</span>
                 </a>
 
                 <button class="sidebar-close" id="sidebarClose">
@@ -146,7 +145,7 @@
                 </button>
 
                 <div class="header-title">
-                    <span id="greeting">Good evening</span>
+                    <span id="greeting">Good evening</span><span class="clock-sep"> · </span><span id="liveClock" class="live-clock">--:--:--</span>
                     <h1>Our little world</h1>
                 </div>
 
@@ -373,6 +372,16 @@
 
                     </div>
 
+                
+                    <button
+                        class="food-picker-reset"
+                        id="resetDishesBtn"
+                        type="button"
+                    >
+                        <i class="bx bx-refresh"></i>
+                        Sync dish list
+                    </button>
+
                 </section>
 
                 <!-- ==================== OUR PROGRESS ==================== -->
@@ -416,6 +425,63 @@
 
 
 
+
+                <!-- ==================== SONG + VERSE ==================== -->
+
+                <div class="daily-widgets" id="dailyWidgets">
+
+                    <section class="panel widget-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="panel-eyebrow">SONG OF THE DAY</span>
+                                <h3>Today's soundtrack</h3>
+                            </div>
+
+                            <div class="widget-icon">
+                                <i class="bx bx-music"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="widget-body" id="songWidget">
+                            <div class="widget-loading">
+                                <i class="bx bx-loader-alt bx-spin"></i>
+                                <p>Loading…</p>
+                            </div>
+                        </div>
+
+                    </section>
+
+
+                    <section class="panel widget-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <span class="panel-eyebrow">VERSE OF THE DAY</span>
+                                <h3>Today's word</h3>
+                            </div>
+
+                            <div class="widget-icon">
+                                <i class="bx bx-book"></i>
+                            </div>
+
+                        </div>
+
+                        <div class="widget-body" id="verseWidget">
+                            <div class="widget-loading">
+                                <i class="bx bx-loader-alt bx-spin"></i>
+                                <p>Loading…</p>
+                            </div>
+                        </div>
+
+                    </section>
+
+                </div>
+
+
             </section>
 
         </main>
@@ -424,6 +490,7 @@
 
 
     <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/app-loaders.js"></script>
     <script type="module" src="js/notifications.js"></script>
     <script type="module" src="js/dates-notifications.js"></script>
     <script type="module" src="js/dashboard-dates.js"></script>
@@ -432,6 +499,7 @@
     <script src="js/greeting.js"></script>
     <script type="module" src="js/dashboard-cycle.js"></script>
     <script type="module" src="js/dashboard-stats.js"></script>
+    <script type="module" src="js/daily-widgets.js"></script>
     <script type="module" src="js/search.js"></script>
 
     <script type="module" src="js/food-picker.js"></script>

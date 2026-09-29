@@ -1,0 +1,36 @@
+// ==================== BIBLE VERSES OF THE DAY ====================
+// List of references. The app fetches the actual text from
+// bible-api.com once per day and shows the same verse for both of you.
+
+export const VERSES = [
+    "John 3:16",
+    "Psalm 23:1",
+    "Proverbs 3:5-6",
+    "Romans 8:28",
+    "Philippians 4:13",
+    "Jeremiah 29:11",
+    "1 Corinthians 13:4-7",
+    "Matthew 11:28",
+    "Isaiah 40:31",
+    "Psalm 46:1",
+    "Joshua 1:9",
+    "Matthew 6:33",
+    "Psalm 27:1",
+    "Romans 12:2",
+    "Galatians 5:22-23",
+    "Hebrews 11:1",
+    "1 Peter 5:7",
+    "Psalm 121:1-2",
+    "Proverbs 18:10",
+    "Colossians 3:23",
+    "Ephesians 4:2",
+    "James 1:2-4",
+    "Matthew 5:16",
+    "Psalm 37:4",
+    "Romans 5:8",
+    "1 John 4:19",
+    "Numbers 6:24-26",
+    "Psalm 91:1-2",
+    "2 Timothy 1:7",
+    "Micah 6:8",
+];
