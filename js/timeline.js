@@ -1,7 +1,7 @@
 import { auth, db } from "../firebase/config.js";
 
-import {
 import { toastError } from "./toast.js";
+import {
     doc,
     getDoc,
     deleteDoc,

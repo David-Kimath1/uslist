@@ -484,7 +484,7 @@
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
             const scope = location.pathname.includes("/pages/") ? "../" : "./";
-            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+            navigator.serviceWorker.register(scope + "sw.js", { updateViaCache: "none" }).catch(() => {});
         });
     }
 </script>

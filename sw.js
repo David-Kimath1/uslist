@@ -2,7 +2,7 @@
 // Caches static assets so the app opens instantly and works offline
 // for already-loaded pages.
 
-const CACHE_NAME = "uslist-v2";
+const CACHE_NAME = "uslist-v9";
 
 const PRECACHE_URLS = [
     "./",
@@ -27,8 +27,6 @@ self.addEventListener("install", (event) => {
             return cache.addAll(PRECACHE_URLS).catch(() => {});
         })
     );
-
-    self.skipWaiting();
 
 });
 
@@ -72,7 +70,7 @@ self.addEventListener("fetch", (event) => {
     }
 
     event.respondWith(
-        fetch(event.request)
+        fetch(event.request, { cache: "no-cache" })
             .then((response) => {
 
                 // Cache a fresh copy of successful responses

@@ -432,12 +432,6 @@ button {
         font-size: 22px;
     }
 
-    .update-loader .loader {
-        --main-size: 3em;
-        width: 7.3em;
-        max-width: 90vw;
-    }
-
     .plasma {
         --size: 1.2;
     }
@@ -710,12 +704,6 @@ button {
         padding: 20px;
     }
 
-    .update-loader .loader {
-        --main-size: 2.5em;
-        width: 7.3em;
-        max-width: 90vw;
-    }
-
     .update-sub {
         font-size: 12px;
         text-align: center;
@@ -862,11 +850,6 @@ button {
 
     .recap-photo-placeholder {
         font-size: 32px;
-    }
-
-    .update-loader .loader {
-        --main-size: 2em;
-        max-width: 92vw;
     }
 
     .update-sub {

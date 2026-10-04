@@ -171,6 +171,17 @@
 
             <section class="content">
 
+                <section class="app-update-banner" id="appUpdateBanner" hidden aria-live="polite">
+                    <div class="app-update-message">
+                        <i class="bx bx-refresh" aria-hidden="true"></i>
+                        <span>A new version is ready.</span>
+                    </div>
+                    <button class="primary-button" id="appUpdateButton" type="button">
+                        <i class="bx bx-download" aria-hidden="true"></i>
+                        Update
+                    </button>
+                </section>
+
                 <section class="hero-card">
 
                     <div class="hero-content">
@@ -682,7 +693,7 @@
     if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
             const scope = location.pathname.includes("/pages/") ? "../" : "./";
-            navigator.serviceWorker.register(scope + "sw.js").catch(() => {});
+            navigator.serviceWorker.register(scope + "sw.js", { updateViaCache: "none" }).catch(() => {});
         });
     }
 </script>

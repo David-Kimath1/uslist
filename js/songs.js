@@ -5,6 +5,8 @@ export const SONGS = [
     "https://open.spotify.com/track/5L1QmczrLlB7Fd5b3P19Mz",
     "https://open.spotify.com/track/77DPPsj43UAUoncZaJ5478",
     "https://open.spotify.com/track/682LDjkqYYZS3nggYDEtAs",
+    "https://open.spotify.com/track/7yq4Qj7cqayVTp3FF9CWbm?si=6e38f169898d4317",
+    "https://open.spotify.com/track/3be9ACTxtcL6Zm4vJRUiPG?si=f2cd64af59704838"
 ];
 
 
